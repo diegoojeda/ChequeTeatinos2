@@ -1,0 +1,63 @@
+10
+
+dir
+0
+file://localhost/Users/escabia/Dropbox/Escabia/Ingenieria_Informatica/5/Project/SVN_Foantimes/ChequeTeatinos
+file://localhost/Users/escabia/Dropbox/Escabia/Ingenieria_Informatica/5/Project/SVN_Foantimes
+add
+
+
+
+
+
+has-props
+has-prop-mods
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+dc8687c8-41c8-4af2-b6d0-81929e2dab6c
+
+Resources
+dir
+
+
+
+add
+
+build.xml
+file
+
+
+
+add
+
+nbproject
+dir
+
+
+
+add
+
+src
+dir
+
+
+
+add
+
+web
+dir
+
+
+
+add
+

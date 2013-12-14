@@ -1,0 +1,133 @@
+10
+
+dir
+0
+file://localhost/Users/escabia/Dropbox/Escabia/Ingenieria_Informatica/5/Project/SVN_Foantimes/ChequeTeatinos/web
+file://localhost/Users/escabia/Dropbox/Escabia/Ingenieria_Informatica/5/Project/SVN_Foantimes
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+dc8687c8-41c8-4af2-b6d0-81929e2dab6c
+
+WEB-INF
+dir
+
+
+
+add
+
+account.jsp
+file
+
+
+
+add
+
+admin_
+dir
+
+
+
+add
+
+cart.jsp
+file
+
+
+
+add
+
+chart.jsp
+file
+
+
+
+add
+
+entertainment.jsp
+file
+
+
+
+add
+
+error.jsp
+file
+
+
+
+add
+
+home.jsp
+file
+
+
+
+add
+
+hotels.jsp
+file
+
+
+
+add
+
+login.jsp
+file
+
+
+
+add
+
+resources
+dir
+
+
+
+add
+
+restaurants.jsp
+file
+
+
+
+add
+
+signup.jsp
+file
+
+
+
+add
+
+structpage
+dir
+
+
+
+add
+
+viewoffer.jsp
+file
+
+
+
+add
+
