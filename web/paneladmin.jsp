@@ -16,22 +16,22 @@
     <jsp:body>
         <section>
             <h2> Panel Administración ${login.cli.nombre}</h2>
-            <form action="">
+            <form name="formcontacto" action="eliminaOfertaServlet" method="get">
             
                 <input class="submit" type="button" value="Añadir Oferta" />
-                <input class="submit" type="submit" value="Eliminar Oferta" />
+                <a href="addofferadmin.jsp"><input class="submit" type="submit" value="Eliminar Oferta" /></a>
                 <table border="1">
                     <thead>
                         <td></td>
-                        <td><h4>Oferta</h4></td>
-                        <td><h4>Empresa</h4></td>
+                        <td><h5>Oferta</h5></td>
+                        <td><h5>Empresa</h5></td>
                     </thead>
                         
                     <c:forEach var="oferta" items="${ofertas.ofertas}" >
                         <tr>
-                                <td><input type="radio" name="oferta" value="${oferta.id}" /></td>
-                                <td><span class="order model">${oferta.nombreOferta}</span></td>
-                                <td><span class="order model">${oferta.empresa}</span></td>
+                            <td><input type="radio" name="oferta" value="${oferta.id}" /></td>
+                            <td><span class="order model">${oferta.nombreOferta}</span></td>
+                            <td><span class="order model">${oferta.empresa}</span></td>
                         </tr>
                     </c:forEach>
                 </table>

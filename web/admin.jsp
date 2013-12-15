@@ -15,7 +15,7 @@
 
     <jsp:body>
         <section>
-            <h2> Login Admin </h2>
+            <h2> Login  </h2>
             <div id="formulario">
                 <form name="formcontacto" action="loginadminServlet" method="post">
                   <div class="form_settings">

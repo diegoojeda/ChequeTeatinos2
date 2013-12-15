@@ -19,7 +19,6 @@
         <section>
             <h2> Login </h2>
             <div id="formulario">
-                <h2>Login</h2>      
                 <form name="formcontacto" action="loginServlet" method="post">
                   <div class="form_settings">
                     <p><span>Email</span><input class="contact" type="email" name="email" required/></p>

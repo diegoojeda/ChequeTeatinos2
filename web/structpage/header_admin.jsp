@@ -14,7 +14,7 @@
              <img id="playpause" class="mismalinea playpause" src="resources/media/images/pause.png" alt="Play Pause" onclick="play()"/>
              <img id="prev" class="mismalinea nextprev" src="resources/media/images/prev.png" alt="Anterior" onclick="$.backstretch('prev')"/>-->
 
-            <h2>Ofertas de establecimientos de Teatinos (Málaga).</h2>
+            <h2>Página de Administración</h2>
         </div>         
     </div> 
 </header>
