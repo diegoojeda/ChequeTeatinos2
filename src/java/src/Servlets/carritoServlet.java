@@ -38,6 +38,7 @@ public class carritoServlet extends HttpServlet {
                 request.getSession().setAttribute("carrito", carrito);
             }
             ((ArrayList<Oferta>)request.getSession().getAttribute("carrito")).add(o);
+            System.err.println("asdafsdfasdf");
             request.getRequestDispatcher("home.jsp").forward(request, response);
         }
         else{

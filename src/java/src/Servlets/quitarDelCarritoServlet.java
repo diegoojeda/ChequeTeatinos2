@@ -1,17 +1,18 @@
 package src.Servlets;
 
-import src.Beans.homeBean;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import src.Entities.Oferta;
 import src.Facades.OfertaFacade;
 
-@WebServlet(name = "homeServlet", urlPatterns = {"/homeServlet"})
-public class homeServlet extends HttpServlet {
+@WebServlet(name = "quitarDelCarritoServlet", urlPatterns = {"/quitarDelCarritoServlet"})
+public class quitarDelCarritoServlet extends HttpServlet {
     @EJB
     private OfertaFacade ofertaFacade;
 
@@ -26,10 +27,9 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        homeBean h = new homeBean();
-        h.setOfertas(ofertaFacade.findAll());
-        request.setAttribute("ofertas", h);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        Oferta o = ofertaFacade.find(Integer.parseInt(request.getParameter("idOferta")));
+        ((ArrayList<Oferta>)request.getSession().getAttribute("carrito")).remove(o);
+        request.getRequestDispatcher("homeServlet").forward(request, response);
     }
 
     /**

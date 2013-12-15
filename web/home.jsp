@@ -12,7 +12,7 @@
     <jsp:attribute name="header">
         <jsp:include page="structpage/header.jsp" />      
     </jsp:attribute>
-
+    
     <jsp:body>
         <jsp:include page="structpage/aside.jsp" />
         <section>
@@ -21,7 +21,7 @@
             <c:forEach var="oferta" items="${ofertas.ofertas}" >
                 <ul>
                     <li>
-                        <a class="product" title="Offers" href="<c:url value="viewoffer.jsp">
+                        <a class="product" title="Offers" href="<c:url value="viewOfferServlet">
                                <c:param name="idOferta" value="${oferta.id}"/> </c:url>"
 			<img src="" alt="Company Image"/>
 			<span class="order model">${oferta.nombreOferta}</span>
