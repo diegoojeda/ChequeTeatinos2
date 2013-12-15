@@ -21,8 +21,13 @@
                 <!-- Campos formulario -->
                 <input class="contact" type="email" name="email" required hidden="true"/>
                 <p><span>Nombre</span><input class="contact" type="text" name="nombre" required/></p>
-                <p><span>Empresa</span>RADIO BUTTON o LISTA</p>
-                
+                <p><span>Empresa</span>
+                    <select name="empresa">
+                        <c:forEach var="empresa" items="${empresas.empresas}" >
+                          <option value="${empresa.id}">${empresa.nombre}</option>
+                        </c:forEach>
+                    </select>
+                </p>
                 <p><span>Existencias</span><input class="contact" type="number" name="existencias" required/></p>
                 <p><span>Descripción</span><input class="contact" type="text" name="descripcion" required/></p>
                 <p><span>Fecha de validez</span><input class="contact" type="date" name="fechaValidez" required/></p>
@@ -31,8 +36,6 @@
                 <input class="submit" type="submit" value="Crear" />
               </div>
             </form> 
-            
-            
         </section>
     </jsp:body>
 </t:genericpage>

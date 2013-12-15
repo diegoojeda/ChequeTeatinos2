@@ -15,10 +15,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import src.Beans.empresasBean;
 import src.Beans.homeBean;
 import src.Beans.loginBean;
 import src.Facades.ClienteFacade;
 import src.Facades.OfertaFacade;
+import src.Facades.EmpresaFacade;
 
 /**
  *
@@ -32,7 +34,10 @@ public class loginadminServlet extends HttpServlet {
     
     @EJB
     private OfertaFacade ofertaFacade;
-    
+
+    @EJB
+    private EmpresaFacade empresaFacade;
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -78,8 +83,15 @@ public class loginadminServlet extends HttpServlet {
                 h.setOfertas(ofertaFacade.findAll());
                 request.setAttribute("ofertas", h);
                 
+                empresasBean em = new empresasBean();
+                em.setEmpresas(empresaFacade.findAll());
+                
+                
+                
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("login", lb);
+                sesion.setAttribute("ofertas", h);
+                sesion.setAttribute("empresas", em);
                 request.getRequestDispatcher("paneladmin.jsp").forward(request, response);
             }
         }

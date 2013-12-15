@@ -34,7 +34,7 @@
                         <tr>
                             <td><input type="radio" name="oferta" value="${oferta.id}" /></td>
                             <td><span class="order model">${oferta.nombreOferta}</span></td>
-                            <td><span class="order model">${oferta.empresa}</span></td>
+                            <td><span class="order model">${oferta.empresa.nombre}</span></td>
                         </tr>
                     </c:forEach>
                 </table>

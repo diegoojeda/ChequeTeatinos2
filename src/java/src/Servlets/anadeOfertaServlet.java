@@ -48,6 +48,8 @@ public class anadeOfertaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
         Oferta o = new Oferta(ofertaFacade.getNextSeqVal());
         o.setDescripcion(request.getParameter("descripcion"));
         o.setEmpresa(empresaFacade.find(request.getParameter("empresa"))); //Provisional
