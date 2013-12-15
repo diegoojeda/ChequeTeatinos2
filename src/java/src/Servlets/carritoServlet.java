@@ -28,7 +28,8 @@ public class carritoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Oferta o = ofertaFacade.find(request.getParameter("idOferta"));
+        int ofertaId = Integer.parseInt(request.getParameter("idOferta"));
+        Oferta o = ofertaFacade.find(ofertaId);
         if (request.getSession().getAttribute("login") != null){
             //Usuario logueado, procedemos a añadir a su carrito el objeto
             if (request.getSession().getAttribute("carrito") == null){
