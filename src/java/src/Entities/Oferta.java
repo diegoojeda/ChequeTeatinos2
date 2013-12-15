@@ -32,7 +32,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Oferta.findByNombreOferta", query = "SELECT o FROM Oferta o WHERE o.nombreOferta = :nombreOferta"),
     @NamedQuery(name = "Oferta.findByDescripcion", query = "SELECT o FROM Oferta o WHERE o.descripcion = :descripcion"),
     @NamedQuery(name = "Oferta.findByPrecioOriginal", query = "SELECT o FROM Oferta o WHERE o.precioOriginal = :precioOriginal"),
-    @NamedQuery(name = "Oferta.findByPrecioConOferta", query = "SELECT o FROM Oferta o WHERE o.precioConOferta = :precioConOferta")})
+    @NamedQuery(name = "Oferta.findByPrecioConOferta", query = "SELECT o FROM Oferta o WHERE o.precioConOferta = :precioConOferta"),
+    @NamedQuery(name = "Oferta.findByTipo", query = "SELECT o FROM Oferta o WHERE o.tipo = :tipo")})
+
 public class Oferta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -61,6 +63,10 @@ public class Oferta implements Serializable {
     @JoinColumn(name = "EMPRESA", referencedColumnName = "ID")
     @ManyToOne
     private Empresa empresa;
+    @Size(max = 20)
+    @Column(name = "TIPO")
+    private String tipo;
+    
 
     public Oferta() {
     }
@@ -140,6 +146,14 @@ public class Oferta implements Serializable {
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
+    }
+    
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
