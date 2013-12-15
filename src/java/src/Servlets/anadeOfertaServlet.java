@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import src.Beans.homeBean;
 import src.Entities.Oferta;
 import src.Facades.EmpresaFacade;
 import src.Facades.OfertaFacade;
@@ -55,9 +56,14 @@ public class anadeOfertaServlet extends HttpServlet {
         o.setNombreOferta(request.getParameter("nombre"));
         o.setPrecioConOferta(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioConOferta"))));
         o.setPrecioOriginal(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioOriginal"))));
+        
         ofertaFacade.create(o);
         empresaFacade.find(o.getId()).getOfertaCollection().add(o); //Ligamos la oferta a la empresa
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
+        
+        homeBean h = new homeBean();
+        h.setOfertas(ofertaFacade.findAll());
+        request.setAttribute("ofertas", h);
+        request.getRequestDispatcher("paneladmin.jsp").forward(request, response); //Crear pagina error de login        
     }
     
     /**

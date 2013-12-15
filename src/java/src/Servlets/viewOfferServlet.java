@@ -1,6 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package src.Servlets;
 
-import src.Beans.homeBean;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -8,12 +13,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import src.Beans.detalleOfertaBean;
+import src.Entities.Empresa;
+import src.Entities.Oferta;
 import src.Facades.OfertaFacade;
 
-@WebServlet(name = "homeServlet", urlPatterns = {"/homeServlet"})
-public class homeServlet extends HttpServlet {
+/**
+ *
+ * @author diegoojedagarcia
+ */
+@WebServlet(name = "viewOfferServlet", urlPatterns = {"/viewOfferServlet"})
+public class viewOfferServlet extends HttpServlet {
     @EJB
     private OfertaFacade ofertaFacade;
+
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -26,10 +39,13 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        homeBean h = new homeBean();
-        h.setOfertas(ofertaFacade.findAll());
-        request.setAttribute("ofertas", h);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        Oferta of = ofertaFacade.find(Integer.parseInt(request.getParameter("idOferta")));
+        Empresa e = of.getEmpresa();
+        detalleOfertaBean dob = new detalleOfertaBean();
+        dob.setEmp(e);
+        dob.setOfe(of);
+        request.setAttribute("ofertaDetalle", dob);
+        request.getRequestDispatcher("viewoffer.jsp").forward(request, response);
     }
 
     /**
@@ -54,6 +70,6 @@ public class homeServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }

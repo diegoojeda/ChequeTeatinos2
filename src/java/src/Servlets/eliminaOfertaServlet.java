@@ -1,6 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package src.Servlets;
 
-import src.Beans.homeBean;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -8,13 +13,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import src.Beans.homeBean;
+import src.Entities.Oferta;
+import src.Facades.EmpresaFacade;
 import src.Facades.OfertaFacade;
 
-@WebServlet(name = "homeServlet", urlPatterns = {"/homeServlet"})
-public class homeServlet extends HttpServlet {
+/**
+ *
+ * @author escabia
+ */
+@WebServlet(name = "eliminaOfertaServlet", urlPatterns = {"/eliminaOfertaServlet"})
+public class eliminaOfertaServlet extends HttpServlet {
+    @EJB
+    private EmpresaFacade empresaFacade;
     @EJB
     private OfertaFacade ofertaFacade;
-
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -26,12 +40,22 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(request.getParameter("oferta") != null){
+            Integer ofertaid = Integer.parseInt(request.getParameter("oferta"));
+            Oferta of = ofertaFacade.find(ofertaid);
+            if(of != null){//Si existe la oferta, debería existir seguro...
+                //ofertaFacade.remove(of);
+            }
+        }
+        else{
+            //GESTIONAR, PONER ERROR DE QUE NO SE HA SELECCIONADO NADA
+        }
         homeBean h = new homeBean();
         h.setOfertas(ofertaFacade.findAll());
         request.setAttribute("ofertas", h);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getRequestDispatcher("paneladmin.jsp").forward(request, response); //Crear pagina error de login        
     }
-
+    
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -43,9 +67,8 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        super.doPost(request, response);
     }
-
+    
     /**
      * Returns a short description of the servlet.
      *
@@ -55,5 +78,5 @@ public class homeServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
+    
 }
