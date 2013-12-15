@@ -34,4 +34,11 @@ public class OfertaFacade extends AbstractFacade<Oferta> {
         List<Integer> seq = em.createQuery("select seq_oferta.nextval from dual;").getResultList();
         return seq.get(0);
     }
+    
+    public int getOfertasbyTipo (String tipo){
+        List<Oferta> ofertas = em.createQuery("SELECT o FROM oferta WHERE o.tipo LIKE :tipo")
+        .setParameter("tipo", tipo).getResultList();
+        return 0;
+    }
+    
 }
