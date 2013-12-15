@@ -17,9 +17,12 @@
         <section>
             <h2> Panel Administración ${login.cli.nombre}</h2>
             <form name="formcontacto" action="eliminaOfertaServlet" method="get">
-            
-                <input class="submit" type="button" value="Añadir Oferta" />
-                <a href="addofferadmin.jsp"><input class="submit" type="submit" value="Eliminar Oferta" /></a>
+                <!-- Añadir o eliminar oferta -->
+                <a href="addofferadmin.jsp"><input class="submit" type="button" value="Añadir Oferta" /></a>
+                <a href="addbusinessadmin.jsp"><input class="submit" type="button" value="Añadir Empresa" /></a><!-- Debería ir solo para añadir oferta -->
+                <input class="submit" type="submit" value="Eliminar Oferta" />
+                
+                <!-- Tabla ofertas -->
                 <table border="1">
                     <thead>
                         <td></td>

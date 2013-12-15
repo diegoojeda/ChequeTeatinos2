@@ -16,7 +16,21 @@
     <jsp:body>
         <section>
             <h2>Nueva Oferta</h2>
-            
+            <form name="formcontacto" action="" method="post">
+              <div class="form_settings">
+                <!-- Campos formulario -->
+                <input class="contact" type="email" name="email" required hidden="true"/>
+                <p><span>Nombre</span><input class="contact" type="text" name="nombre" required/></p>
+                <p><span>Empresa</span>RADIO BUTTON o LISTA</p>
+                
+                <p><span>Existencias</span><input class="contact" type="number" name="existencias" required/></p>
+                <p><span>Descripción</span><input class="contact" type="text" name="descripcion" required/></p>
+                <p><span>Fecha de validez</span><input class="contact" type="date" name="fechaValidez" required/></p>
+                <p><span>Precio Ofertado</span><input class="contact" type="number" name="precioConOferta" required/></p>
+                <p><span>Precio Original</span><input class="contact" type="number" name="precioOriginal" required/></p>
+                <input class="submit" type="submit" value="Crear" />
+              </div>
+            </form> 
             
             
         </section>
