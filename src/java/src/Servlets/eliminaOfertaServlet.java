@@ -1,9 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 package src.Servlets;
 
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.sql.Date;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,9 +18,12 @@ import src.Entities.Oferta;
 import src.Facades.EmpresaFacade;
 import src.Facades.OfertaFacade;
 
-
-@WebServlet(name = "anadeOfertaServlet", urlPatterns = {"/anadeOfertaServlet"})
-public class anadeOfertaServlet extends HttpServlet {
+/**
+ *
+ * @author escabia
+ */
+@WebServlet(name = "eliminaOfertaServlet", urlPatterns = {"/eliminaOfertaServlet"})
+public class eliminaOfertaServlet extends HttpServlet {
     @EJB
     private EmpresaFacade empresaFacade;
     @EJB
@@ -34,7 +40,20 @@ public class anadeOfertaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        super.doGet(request, response);
+        if(request.getParameter("oferta") != null){
+            Integer ofertaid = Integer.parseInt(request.getParameter("oferta"));
+            Oferta of = ofertaFacade.find(ofertaid);
+            if(of != null){//Si existe la oferta, debería existir seguro...
+                //ofertaFacade.remove(of);
+            }
+        }
+        else{
+            //GESTIONAR, PONER ERROR DE QUE NO SE HA SELECCIONADO NADA
+        }
+        homeBean h = new homeBean();
+        h.setOfertas(ofertaFacade.findAll());
+        request.setAttribute("ofertas", h);
+        request.getRequestDispatcher("paneladmin.jsp").forward(request, response); //Crear pagina error de login        
     }
     
     /**
@@ -48,22 +67,6 @@ public class anadeOfertaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Oferta o = new Oferta(ofertaFacade.getNextSeqVal());
-        o.setDescripcion(request.getParameter("descripcion"));
-        o.setEmpresa(empresaFacade.find(request.getParameter("empresa"))); //Provisional
-        o.setExistencias((short)Integer.parseInt(request.getParameter("existencias")));
-        o.setFechaValidez(Date.valueOf(request.getParameter("fechaValidez")));
-        o.setNombreOferta(request.getParameter("nombre"));
-        o.setPrecioConOferta(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioConOferta"))));
-        o.setPrecioOriginal(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioOriginal"))));
-        
-        ofertaFacade.create(o);
-        empresaFacade.find(o.getId()).getOfertaCollection().add(o); //Ligamos la oferta a la empresa
-        
-        homeBean h = new homeBean();
-        h.setOfertas(ofertaFacade.findAll());
-        request.setAttribute("ofertas", h);
-        request.getRequestDispatcher("paneladmin.jsp").forward(request, response); //Crear pagina error de login        
     }
     
     /**

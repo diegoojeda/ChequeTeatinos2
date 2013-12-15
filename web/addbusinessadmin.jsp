@@ -10,14 +10,15 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-        <jsp:include page="structpage/header.jsp" />      
+        <jsp:include page="structpage/header_admin.jsp" />      
     </jsp:attribute>
 
     <jsp:body>
-        <jsp:include page="structpage/aside.jsp" />
         <section>
-            Página del Carrito
-
+            <h2>Nueva Empresa</h2>
+                       
         </section>
     </jsp:body>
 </t:genericpage>
+
+                    
