@@ -7,20 +7,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<!DOCTYPE HTML>
 
 <t:genericpage>
     <jsp:attribute name="header">
-        <jsp:include page="structpage/header.jsp" />      
+        <jsp:include page="structpage/header_admin.jsp" />      
     </jsp:attribute>
 
     <jsp:body>
-        <jsp:include page="structpage/aside.jsp" />
         <section>
-            <h2> Login </h2>
+            <h2> Login Admin </h2>
             <div id="formulario">
-                <h2>Login</h2>      
-                <form name="formcontacto" action="loginServlet" method="post">
+                <form name="formcontacto" action="loginadminServlet" method="post">
                   <div class="form_settings">
                     <p><span>Email</span><input class="contact" type="email" name="email" required/></p>
                     <p><span>Contraseña</span><input class="contact" type="password" name="password" required/></p>
