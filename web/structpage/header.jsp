@@ -20,10 +20,27 @@
     </div> 
     <nav>
         <ul id="menu">
-            <li id="liinicio"><a href="homeServlet" id="inicio"><img id='home' src='http://www.u-phonik.com/images/res-img/home.png' alt='Inicio'/></a><br></li>
-            <li id="lialojamiento"><a href="hotels.jsp" id="alojamiento" onclick="alojamiento()">Alojamiento</a></li>
-            <li id="liocio"><a href="entertainment.jsp" id="ocio">Ocio</a></li>
-            <li id="lirestaurantes"><a href="restaurants.jsp" id="restaurantes">Restaurantes</a></li>
+            <li id="liinicio">
+                <a href="homeServlet" id="inicio">
+                    <img id='home' src='http://www.u-phonik.com/images/res-img/home.png' alt='Inicio'/>
+                </a>
+                <br>
+            </li>
+            <li id="lialojamiento"><a href="
+                   <c:url value="tiposOfertas">
+                       <c:param name="tipo" value="Alojamiento"/>
+                   </c:url>" id="alojamiento">Alojamiento</a>
+            </li>
+            <li id="liocio"><a href="
+                   <c:url value="tiposOfertas">
+                       <c:param name="tipo" value="Comida"/>
+                   </c:url>" id="ocio">Ocio</a>
+            </li>
+            <li id="lirestaurantes"><a href="
+                   <c:url value="tiposOfertas">
+                       <c:param name="tipo" value="Ocio"/>
+                   </c:url>" id="restaurantes">Restaurantes</a>
+            </li>
         </ul>
         <div class="loginaccount">
             <c:if test="${empty login.cli.email}"><!-- Si no estás logeado -->

@@ -1,5 +1,6 @@
 package src.Facades;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,10 +26,9 @@ public class OfertaFacade extends AbstractFacade<Oferta> {
         return seq.get(0);
     }
     
-    public int getOfertasbyTipo (String tipo){
-        List<Oferta> ofertas = em.createQuery("SELECT o FROM oferta WHERE o.tipo LIKE :tipo")
+    public List<Oferta> findOfertasbyTipo (String tipo){
+        List<Oferta> ofertas = em.createQuery("SELECT o FROM Oferta o WHERE o.tipo LIKE :tipo")
         .setParameter("tipo", tipo).getResultList();
-        return 0;
+        return ofertas;
     }
-    
 }

@@ -27,7 +27,7 @@
                 <p><span>Contraseña</span><input class="contact" type="password" name="password" value="${login.cli.pass}" required/></p>
                 <input class="submit" type="submit" value="Modificar" />
               </div>
-            </form> 
+            </form>
         </section>
     </jsp:body>
 </t:genericpage>

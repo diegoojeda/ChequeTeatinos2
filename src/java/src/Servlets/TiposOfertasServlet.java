@@ -1,18 +1,19 @@
 package src.Servlets;
 
-import src.Beans.ofertasBean;
 import java.io.IOException;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import src.Beans.homeBean;
 import src.Entities.Oferta;
 import src.Facades.OfertaFacade;
 
 @WebServlet(name = "tiposOfertas", urlPatterns = {"/tiposOfertas"})
-public class tiposOfertas extends HttpServlet {
+public class TiposOfertasServlet extends HttpServlet {
     @EJB
     private OfertaFacade ofertaFacade;
    
@@ -27,10 +28,15 @@ public class tiposOfertas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ofertasBean o = new ofertasBean();
-        o.setOfer((Oferta)ofertaFacade.findAll());
-        request.setAttribute("ofertas", o);
+        List<Oferta> ofertas = ofertaFacade.findOfertasbyTipo(request.getParameter("tipo"));
+        homeBean hb = new homeBean();
+        hb.setOfertas(ofertas);
+        request.setAttribute("ofertas", hb);
         request.getRequestDispatcher("home.jsp").forward(request, response);
+//        ofertasBean o = new ofertasBean();
+//        o.setOfer((Oferta)ofertaFacade.findAll());
+//        request.setAttribute("ofertas", o);
+//        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     /**
