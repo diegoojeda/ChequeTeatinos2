@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -44,6 +45,9 @@ public class Empresa implements Serializable {
     @Size(max = 60)
     @Column(name = "DIRECCION")
     private String direccion;
+    @Lob
+    @Column(name = "IMAGEN")
+    private Serializable imagen;
     @OneToMany(mappedBy = "empresa")
     private Collection<Oferta> ofertaCollection;
 
@@ -76,6 +80,14 @@ public class Empresa implements Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public Serializable getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Serializable imagen) {
+        this.imagen = imagen;
     }
 
     @XmlTransient

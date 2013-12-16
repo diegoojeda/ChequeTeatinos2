@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import src.Entities.Empresa;
+import src.Entities.Oferta;
 
 /**
  *
@@ -27,8 +28,14 @@ public class EmpresaFacade extends AbstractFacade<Empresa> {
     public EmpresaFacade() {
         super(Empresa.class);
     }
-    public int getNextSeqVal (){
-        List<Integer> seq = em.createQuery("select seq_empresa.nextval from dual;").getResultList();
+     public int getNextSeqVal (){
+        List<Integer> seq = em.createQuery("select seq_oferta.nextval from dual;").getResultList();
         return seq.get(0);
+    }
+    
+    public List<Oferta> findOfertasbyTipo (String tipo){
+        List<Oferta> ofertas = em.createQuery("SELECT o FROM Oferta o WHERE o.tipo LIKE :tipo")
+        .setParameter("tipo", tipo).getResultList();
+        return ofertas;
     }
 }

@@ -6,8 +6,10 @@
 
 package src.Servlets;
 
+import src.Facades.ClienteFacade;
+import src.Facades.EmpresaFacade;
+import src.Facades.OfertaFacade;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,9 +20,7 @@ import javax.servlet.http.HttpSession;
 import src.Beans.empresasBean;
 import src.Beans.homeBean;
 import src.Beans.loginBean;
-import src.Facades.ClienteFacade;
-import src.Facades.OfertaFacade;
-import src.Facades.EmpresaFacade;
+
 
 /**
  *

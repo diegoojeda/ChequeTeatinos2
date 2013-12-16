@@ -13,7 +13,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -69,9 +68,6 @@ public class Oferta implements Serializable {
     @Size(max = 20)
     @Column(name = "TIPO")
     private String tipo;
-    @Lob
-    @Column(name = "IMAGEN")
-    private Serializable imagen;
     @OneToMany(mappedBy = "codigoOferta")
     private Collection<PedidoOferta> pedidoOfertaCollection;
     @JoinColumn(name = "EMPRESA", referencedColumnName = "ID")
@@ -147,14 +143,6 @@ public class Oferta implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public Serializable getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(Serializable imagen) {
-        this.imagen = imagen;
     }
 
     @XmlTransient

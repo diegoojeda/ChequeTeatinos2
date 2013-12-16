@@ -27,7 +27,6 @@ public class ClienteFacade extends AbstractFacade<Cliente> {
     public ClienteFacade() {
         super(Cliente.class);
     }
-    
     public Cliente findClienteEmailPass (String email, String password) throws Exception{
         List<Cliente> clientes = em.createQuery("SELECT c FROM Cliente c WHERE c.email LIKE :email AND c.pass LIKE :password")
                 .setParameter("email", email)

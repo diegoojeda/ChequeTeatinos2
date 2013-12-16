@@ -27,7 +27,7 @@ public class OfertaFacade extends AbstractFacade<Oferta> {
     public OfertaFacade() {
         super(Oferta.class);
     }
-    public int getNextSeqVal (){
+     public int getNextSeqVal (){
         List<Integer> seq = em.createQuery("select seq_oferta.nextval from dual;").getResultList();
         return seq.get(0);
     }

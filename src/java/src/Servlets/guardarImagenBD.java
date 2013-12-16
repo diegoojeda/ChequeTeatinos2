@@ -113,7 +113,7 @@ public class guardarImagenBD extends HttpServlet {
     }
     public void guardarEnLaBD(String datos){
         Oferta o = ofertaFacade.find(1);
-        o.setImagen(datos);
+//        o.setImagen(datos);
         ofertaFacade.edit(o);
     }
 }

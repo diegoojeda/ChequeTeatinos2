@@ -105,7 +105,8 @@ public class cargarImagenBD extends HttpServlet {
     }
     
     public String cargarDesdeLaBaseDeDatos(int id){
-        String datos = (String) ofertaFacade.find(id).getImagen();
-        return datos;
+//        String datos = (String) ofertaFacade.find(id).getImagen();
+//        return datos;
+        return null;
     }
 }
