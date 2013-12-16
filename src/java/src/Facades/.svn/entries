@@ -1,70 +1,0 @@
-10
-
-dir
-0
-file://localhost/Users/escabia/Dropbox/Escabia/Ingenieria_Informatica/5/Project/SVN_Foantimes/ChequeTeatinos/src/java/src/Facades
-file://localhost/Users/escabia/Dropbox/Escabia/Ingenieria_Informatica/5/Project/SVN_Foantimes
-add
-
-
-
-
-
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-dc8687c8-41c8-4af2-b6d0-81929e2dab6c
-
-AbstractFacade.java
-file
-
-
-
-add
-
-ClienteFacade.java
-file
-
-
-
-add
-
-EmpresaFacade.java
-file
-
-
-
-add
-
-OfertaFacade.java
-file
-
-
-
-add
-
-PedidoFacade.java
-file
-
-
-
-add
-
-PedidoOfertaFacade.java
-file
-
-
-
-add
-

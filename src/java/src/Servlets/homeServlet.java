@@ -43,7 +43,10 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        super.doPost(request, response);
+        homeBean h = new homeBean();
+        h.setOfertas(ofertaFacade.findAll());
+        request.setAttribute("ofertas", h);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     /**

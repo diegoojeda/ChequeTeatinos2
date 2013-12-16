@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package src.Entities;
 
 import java.io.Serializable;
@@ -21,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author diegoojedagarcia
+ * @author masterinftel11
  */
 @Entity
 @Table(name = "PEDIDO_OFERTA")
@@ -96,7 +94,7 @@ public class PedidoOferta implements Serializable {
 
     @Override
     public String toString() {
-        return "src.Beans.PedidoOferta[ id=" + id + " ]";
+        return "src.Entities.PedidoOferta[ id=" + id + " ]";
     }
     
 }

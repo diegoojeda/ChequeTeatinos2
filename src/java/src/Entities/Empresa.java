@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package src.Entities;
 
 import java.io.Serializable;
@@ -23,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author diegoojedagarcia
+ * @author masterinftel11
  */
 @Entity
 @Table(name = "EMPRESA")
@@ -103,12 +101,15 @@ public class Empresa implements Serializable {
             return false;
         }
         Empresa other = (Empresa) object;
-        return (this.id != null || other.id == null) && (this.id == null || this.id.equals(other.id));
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "src.Beans.Empresa[ id=" + id + " ]";
+        return "src.Entities.Empresa[ id=" + id + " ]";
     }
     
 }

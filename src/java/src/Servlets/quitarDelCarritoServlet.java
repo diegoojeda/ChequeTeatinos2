@@ -29,7 +29,7 @@ public class quitarDelCarritoServlet extends HttpServlet {
             throws ServletException, IOException {
         Oferta o = ofertaFacade.find(Integer.parseInt(request.getParameter("idOferta")));
         ((ArrayList<Oferta>)request.getSession().getAttribute("carrito")).remove(o);
-        request.getRequestDispatcher("homeServlet").forward(request, response);
+        request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 
     /**

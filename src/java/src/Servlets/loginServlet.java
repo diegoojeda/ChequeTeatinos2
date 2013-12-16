@@ -60,7 +60,7 @@ public class loginServlet extends HttpServlet {
             else{
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("login", lb);
-                request.getRequestDispatcher("home.jsp").forward(request, response);
+                request.getRequestDispatcher("homeServlet").forward(request, response);
             }
         }
     }

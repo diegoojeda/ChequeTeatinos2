@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package src.Facades;
 
 import java.util.List;
@@ -14,7 +12,7 @@ import src.Entities.Empresa;
 
 /**
  *
- * @author diegoojedagarcia
+ * @author masterinftel11
  */
 @Stateless
 public class EmpresaFacade extends AbstractFacade<Empresa> {
@@ -29,9 +27,8 @@ public class EmpresaFacade extends AbstractFacade<Empresa> {
     public EmpresaFacade() {
         super(Empresa.class);
     }
-    
     public int getNextSeqVal (){
-        List<Integer> seq = em.createQuery("select seq_oferta.nextval from dual").getResultList();
+        List<Integer> seq = em.createQuery("select seq_empresa.nextval from dual;").getResultList();
         return seq.get(0);
     }
 }

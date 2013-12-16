@@ -1,12 +1,19 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package src.Facades;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import src.Entities.Oferta;
 
+/**
+ *
+ * @author masterinftel11
+ */
 @Stateless
 public class OfertaFacade extends AbstractFacade<Oferta> {
     @PersistenceContext(unitName = "ChequeTeatinosPU")
@@ -20,7 +27,6 @@ public class OfertaFacade extends AbstractFacade<Oferta> {
     public OfertaFacade() {
         super(Oferta.class);
     }
-    
     public int getNextSeqVal (){
         List<Integer> seq = em.createQuery("select seq_oferta.nextval from dual;").getResultList();
         return seq.get(0);
