@@ -67,7 +67,7 @@ public class anadeOfertaServlet extends HttpServlet {
         request.setAttribute("ofertas", h);
         request.getRequestDispatcher("paneladmin.jsp").forward(request, response); //Crear pagina error de login        
     }
-    
+
     /**
      * Returns a short description of the servlet.
      *

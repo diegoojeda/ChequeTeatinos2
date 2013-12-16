@@ -1,3 +1,7 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package src.Entities;
 
 import java.io.Serializable;
@@ -9,6 +13,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -21,6 +26,10 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+/**
+ *
+ * @author masterinftel11
+ */
 @Entity
 @Table(name = "OFERTA")
 @XmlRootElement
@@ -34,7 +43,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Oferta.findByPrecioOriginal", query = "SELECT o FROM Oferta o WHERE o.precioOriginal = :precioOriginal"),
     @NamedQuery(name = "Oferta.findByPrecioConOferta", query = "SELECT o FROM Oferta o WHERE o.precioConOferta = :precioConOferta"),
     @NamedQuery(name = "Oferta.findByTipo", query = "SELECT o FROM Oferta o WHERE o.tipo = :tipo")})
-
 public class Oferta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -47,7 +55,7 @@ public class Oferta implements Serializable {
     private Date fechaValidez;
     @Column(name = "EXISTENCIAS")
     private Short existencias;
-    @Size(max = 30)
+    @Size(max = 60)
     @Column(name = "NOMBRE_OFERTA")
     private String nombreOferta;
     @Size(max = 200)
@@ -58,15 +66,17 @@ public class Oferta implements Serializable {
     private BigDecimal precioOriginal;
     @Column(name = "PRECIO_CON_OFERTA")
     private BigDecimal precioConOferta;
+    @Size(max = 20)
+    @Column(name = "TIPO")
+    private String tipo;
+    @Lob
+    @Column(name = "IMAGEN")
+    private Serializable imagen;
     @OneToMany(mappedBy = "codigoOferta")
     private Collection<PedidoOferta> pedidoOfertaCollection;
     @JoinColumn(name = "EMPRESA", referencedColumnName = "ID")
     @ManyToOne
     private Empresa empresa;
-    @Size(max = 20)
-    @Column(name = "TIPO")
-    private String tipo;
-    
 
     public Oferta() {
     }
@@ -131,6 +141,22 @@ public class Oferta implements Serializable {
         this.precioConOferta = precioConOferta;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Serializable getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Serializable imagen) {
+        this.imagen = imagen;
+    }
+
     @XmlTransient
     public Collection<PedidoOferta> getPedidoOfertaCollection() {
         return pedidoOfertaCollection;
@@ -146,14 +172,6 @@ public class Oferta implements Serializable {
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
-    }
-    
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     @Override
@@ -178,7 +196,7 @@ public class Oferta implements Serializable {
 
     @Override
     public String toString() {
-        return "src.Beans.Oferta[ id=" + id + " ]";
+        return "src.Entities.Oferta[ id=" + id + " ]";
     }
     
 }

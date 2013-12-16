@@ -35,7 +35,7 @@
                 <p><span>Precio Original</span><input class="contact" type="number" name="precioOriginal" required/></p>
                 <input class="submit" type="submit" value="Crear" />
               </div>
-            </form> 
+            </form>
         </section>
     </jsp:body>
 </t:genericpage>

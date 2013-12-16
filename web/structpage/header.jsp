@@ -33,12 +33,12 @@
             </li>
             <li id="liocio"><a href="
                    <c:url value="tiposOfertas">
-                       <c:param name="tipo" value="Comida"/>
+                       <c:param name="tipo" value="Ocio"/>
                    </c:url>" id="ocio">Ocio</a>
             </li>
             <li id="lirestaurantes"><a href="
                    <c:url value="tiposOfertas">
-                       <c:param name="tipo" value="Ocio"/>
+                       <c:param name="tipo" value="Comida"/>
                    </c:url>" id="restaurantes">Restaurantes</a>
             </li>
         </ul>

@@ -1,3 +1,7 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package src.Facades;
 
 import java.util.List;
@@ -6,16 +10,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import src.Entities.Cliente;
 
+/**
+ *
+ * @author masterinftel11
+ */
 @Stateless
 public class ClienteFacade extends AbstractFacade<Cliente> {
     @PersistenceContext(unitName = "ChequeTeatinosPU")
     private EntityManager em;
-    
+
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-    
+
     public ClienteFacade() {
         super(Cliente.class);
     }
