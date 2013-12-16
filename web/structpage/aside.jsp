@@ -12,12 +12,15 @@
         <img src="http://websiteexpert.com/wp-content/uploads/grey-blue-cart1.png" alt="" class="iconosmapas">
     </a>
     <c:forEach var="oferta" items="${carrito}">
-        <br> ${oferta.nombreOferta} 
+        <span class="order model"><br> ${oferta.nombreOferta}</span>
         <a href="
-           <c:url value="quitarDelCarritoServlet" >
+           <c:url value="quitarDelCarritoServlet">
                <c:param name="idOferta" value="${oferta.id}"/>
-           </c:url>">Eliminar</a>
+           </c:url>">
+            <img src="web/resources/media/images/delete.png" alt="Delete carrito"/>
+        </a>
         <br>
+        
         
     </c:forEach>
 </aside>  

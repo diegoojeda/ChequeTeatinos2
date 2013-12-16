@@ -23,27 +23,30 @@
                  </span>
                  ${ofertaDetalle.ofe.descripcion}
                     <span class="order">
-                        
                         <span class="price">
-                            Antes: 
-                            <strike>
-                                ${ofertaDetalle.ofe.precioOriginal}
-                            </strike>
-                        </span>
-                        <span class="price">
-                            Ahora: ${ofertaDetalle.ofe.precioConOferta}
+                            ${ofertaDetalle.ofe.precioConOferta}
                         <span class="euros">
                             €
                         </span>
-                     </span>
-                 </span>
-            </div> 
-            <a href="
-               <c:url value="carritoServlet"> 
+                        </span>
+                    </span>
+                    <span class="price">
+                        <span class="pricebefore">
+                            Antes: ${ofertaDetalle.ofe.precioOriginal}
+                        <span class="euros">
+                            €
+                        </span>
+                        </span>     
+                    </span>
+               <a href="
+               <c:url value="carritoServlet">
                    <c:param name="idOferta" value="${ofertaDetalle.ofe.id}"/> 
                </c:url>">
-                <br>Añadir al carrito<br>
-            </a>
+               <span class="details">Añadir al carrito</span> 
+                </a>
+            </div> 
+            
         </section>
+                        
     </jsp:body>
 </t:genericpage>

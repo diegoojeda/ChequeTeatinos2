@@ -156,6 +156,7 @@ root {
 .product .model { font-size: 16px; color: #1898d6; padding: 0 0 2px 0; }
 .product .number { font-family: arial, sans-serif; font-style: normal; }
 .product .details { font-size: 18px; line-height: 30px; color: #ffba00; font-style: normal; font-weight: bold; letter-spacing: -1px; float: left; display: inline; padding: 8px 0 0 0; }
+.product .pricebefore {opacity: 0.75; text-decoration: line-through; font-size: 20px; line-height: 40px; display: inline; font-style: normal; color:#1898d6 ; font-weight: bold; }
 .product .price { font-size: 30px; line-height: 40px; float: right; display: inline; font-style: normal; color: #1898d6; font-weight: bold; }
 .product .euro { font-size: 20px; }
 .product:hover,

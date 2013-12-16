@@ -16,9 +16,10 @@
     <jsp:body>
         <jsp:include page="structpage/aside.jsp" />
         <section>
-            ¿Dónde estará mi carro?
-        </section>
-        <div class="row">
+            <div class="product" title="Carrito">
+
+            <div class="row">
+
             <c:forEach var="oferta" items="${carrito}" >
                 <ul>
                     <li>
@@ -36,15 +37,17 @@
                                 </span>
                                     
                             </span>
+                            <br></br>
                             <a href="
                                <c:url value="quitarDelCarritoServlet" >
                                    <c:param name="idOferta" value="${oferta.id}"/>
-                               </c:url>"><br>Eliminar del carrito</a>
-                            <br>
-                        </span>
+                               </c:url>"><span class="details">Eliminar del carrito</span></a>
+                            </span>
                     </li>
                 </ul>
             </c:forEach>
-        </div>
+            </div>
+            </div>
+        </section>
     </jsp:body>
 </t:genericpage>
