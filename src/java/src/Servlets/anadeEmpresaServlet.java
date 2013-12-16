@@ -1,4 +1,4 @@
-package src.Servlets;
+package Servlets;
 
 import java.io.IOException;
 import javax.ejb.EJB;

@@ -1,5 +1,5 @@
 
-package src.Beans;
+package Beans;
 
 import src.Entities.Oferta;
 

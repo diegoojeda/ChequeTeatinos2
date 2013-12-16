@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package src.Servlets;
+package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

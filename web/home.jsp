@@ -18,7 +18,7 @@
         <section>
             <h2>¡Últimas ofertas!</h2>
             <div class="row">
-            <c:forEach var="oferta" items="${ofertas.ofertas}" >
+            <c:forEach var="oferta" items="${ofertas.ofertas}" end="5" >
                 <ul>
                     <li>
                         <a class="product" title="Offers" href="<c:url value="viewOfferServlet">

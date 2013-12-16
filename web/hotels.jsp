@@ -18,8 +18,7 @@
         <section>
             <h2>Alojamiento</h2>
             <div class="row">
-            <c:forEach var="ofertasAlojamiento" items="${ofertas.ofertas}" >
-                <c:if test="${tipoOferta.tipo eq 'Alojamiento'}"/>
+            <c:forEach var="ofertasAlojamiento" items="${oferta.ofertas}" >
                 <ul>
                     <li>
                         <a class="product" title="Offers" href="<c:url value="viewoffer.jsp">
