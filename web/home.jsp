@@ -39,7 +39,6 @@
             <c:if test="${not empty idul}">
                 <h2>${title}</h2>
             </c:if>
-                
             <div class="row">
             <c:forEach var="oferta" items="${ofertas.ofertas}">
                 <ul>

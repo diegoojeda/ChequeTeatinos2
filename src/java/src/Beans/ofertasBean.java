@@ -15,7 +15,16 @@ import java.util.List;
  */
 public class ofertasBean {
     private List<Oferta> ofertas;
+    private String tipo;
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
     public List<Oferta> getOfertas() {
         return ofertas;
     }
