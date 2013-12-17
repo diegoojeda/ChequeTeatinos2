@@ -32,6 +32,7 @@
                         </c:forEach>
                     </select>
                 </p>
+                <br>
                 <p><span>Existencias</span><input class="contact" type="number" name="existencias" required/></p>
                 <p><span>Descripción</span><input class="contact" type="text" name="descripcion" required/></p>
                 <p><span>Fecha de validez</span><input class="contact" type="date" name="fechaValidez" required/></p>
