@@ -17,7 +17,7 @@
         <ul id="menu">
             <li id="liofertas"><a href="offersadmin.jsp">Ofertas</a></li>
             <li id="liempresas"><a href="businessadmin.jsp">Empresas</a></li>
-            <li id="liclientes"><a href="customersadmin.jsp">Clientes</a></li>
+            <li id="liclientes"><a href="customersadmin.jsp">Clientes*</a></li>
         </ul>  
         <div class="loginaccount">
             <c:if test="${not empty login.cli.email}">

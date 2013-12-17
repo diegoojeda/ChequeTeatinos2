@@ -9,17 +9,19 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:genericpage_loginadmin>
-
     <jsp:body>
-        <h2> Login  </h2>
+        <h2>Login Administrador</h2>
         <div id="formulario">
             <form name="formcontacto" action="loginadminServlet" method="post">
               <div class="form_settings">
-                <p><span>Email</span><input class="contact" type="email" name="email" required/></p>
-                <p><span>Contraseña</span><input class="contact" type="password" name="password" required/></p>
+                <p><span>Email</span><input class="contact" type="email" name="email" required value="${email}"/></p>
+                <p><span>Contraseña</span><input class="contact" type="password" name="password" required value="${pass}"/></p>
                 <div class="mismalinea">
                     <input class="submit" type="submit" value="Entrar" />
                 </div>
+                <c:if test="${not empty errorlogin}">
+                    <h5 class="error">${errorlogin}</h5>
+                </c:if>
               </div>
             </form>                
         </div>

@@ -20,10 +20,17 @@
             });
         </script>        
         <section>
+            <c:if test="${not empty info}">
+                <h5 class="info">${info}</h5>
+            </c:if>
+            <c:if test="${not empty error}">
+                <h5 class="error">${error}</h5>
+            </c:if>
+            
             <form name="formcontacto" action="eliminaOfertaServlet" method="get">
                 <!-- Añadir o eliminar oferta -->
                 <br><h5><a href="addofferadmin.jsp"><input class="botones" type="button" value="Añadir Oferta" /></a>
-                <input class="botones" type="submit" value="Eliminar Oferta" /></h5>
+                    <input class="botones" type="submit" value="Eliminar Oferta"/></h5>
                 
                 <!-- Tabla ofertas -->
                 <table border="1">

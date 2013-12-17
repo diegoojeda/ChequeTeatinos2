@@ -34,7 +34,6 @@ public class TiposOfertasServlet extends HttpServlet {
         request.setAttribute("ofertas", hb);
         
         if("Alojamiento".equals(request.getParameter("tipo"))){
-            System.out.println("lkajsfdlkjasldkñfjlñkajsñdlkfjalñskjdfñ");
             request.setAttribute("idul", "#lialojamiento");
             request.setAttribute("title", "Alojamiento");
             

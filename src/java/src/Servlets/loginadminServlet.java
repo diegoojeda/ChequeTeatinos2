@@ -76,6 +76,13 @@ public class loginadminServlet extends HttpServlet {
                 request.getRequestDispatcher("error.jsp").forward(request, response); //Crear pagina error de login
             }
             if(lb.getCli() == null || lb.getCli().getEsAdmin() != 1){
+                request.setAttribute("email",email);
+                request.setAttribute("pass", pass);
+                if(lb.getCli() == null){
+                    request.setAttribute("errorlogin", "Usuario y/o contraseña incorrectos");
+                }
+                else
+                    request.setAttribute("errorlogin", "Debe ser administrador para acceder");
                 request.getRequestDispatcher("admin.jsp").forward(request, response);
             }
             else{
@@ -85,8 +92,7 @@ public class loginadminServlet extends HttpServlet {
                 
                 empresasBean em = new empresasBean();
                 em.setEmpresas(empresaFacade.findAll());
-                
-                
+
                 
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("login", lb);

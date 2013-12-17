@@ -43,12 +43,13 @@ public class eliminaOfertaServlet extends HttpServlet {
         if(request.getParameter("oferta") != null){
             Integer ofertaid = Integer.parseInt(request.getParameter("oferta"));
             Oferta of = ofertaFacade.find(ofertaid);
-            if(of != null){//Si existe la oferta, debería existir seguro...
-                //ofertaFacade.remove(of);
+            if(of != null){
+                ofertaFacade.remove(of);
+                request.setAttribute("info", "Oferta eliminada");
             }
         }
         else{
-            //GESTIONAR, PONER ERROR DE QUE NO SE HA SELECCIONADO NADA
+            request.setAttribute("error", "Debe seleccionar una oferta");
         }
         ofertasBean h = new ofertasBean();
         h.setOfertas(ofertaFacade.findAll());

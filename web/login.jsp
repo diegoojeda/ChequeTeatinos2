@@ -17,6 +17,9 @@
     <jsp:body>
         <jsp:include page="structpage/aside.jsp" />
         <section>
+            <c:if test="${not empty info}">
+                <h5 class="info">${info}</h5>
+            </c:if>
             <h2> Login </h2>                
             <div id="formulario">
                 <form name="formcontacto" action="loginServlet" method="post">

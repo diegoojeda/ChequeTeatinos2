@@ -41,6 +41,7 @@ public class carritoServlet extends HttpServlet {
         }
         else{
             //Usuario no logueado, le redirigimos a la pagina de login
+            request.setAttribute("info", "Debe autentificarse para añadir ofertas al carrito");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
         
