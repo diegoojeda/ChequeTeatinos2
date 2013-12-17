@@ -24,7 +24,6 @@
             <form name="formcontacto" action="anadeOfertaServlet" method="post">
               <div class="form_settings">
                 <!-- Campos formulario -->
-                <input class="contact" type="email" name="email" required hidden="true"/>
                 <p><span>Nombre</span><input class="contact" type="text" name="nombre" required/></p>
                 <p><span>Empresa</span>
                     <select name="empresa">
