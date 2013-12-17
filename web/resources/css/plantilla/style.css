@@ -227,7 +227,9 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 }
 
 aside
-{ float: right;
+{ 
+    margin-top: 10px;
+    float: right;
   width: 15%;
   padding: 0 15px 20px 15px;}
 
@@ -288,8 +290,8 @@ section ul li
 
 .form_settings span
 { 
+    float: left;
     text-transform: none;
-    float: left; 
   width: 200px; 
   text-align: left;}
   

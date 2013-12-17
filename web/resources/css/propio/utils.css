@@ -163,3 +163,13 @@ root {
 .product.hover { background: url(images/product-hover.png) no-repeat 0 0; text-decoration: none; }
 .product.hover .model { font-weight: bold; }
 .product.hover .details { color: #ff7800; }    
+
+.botones{
+    padding: 5px; 
+  width: 150px; 
+  font: 100% arial; 
+  border: 1px solid #000000; 
+  border-radius: 5px;
+  background: #FFF; 
+  color: #47433F;
+}

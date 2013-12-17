@@ -23,6 +23,9 @@ import src.Facades.ClienteFacade;
 @WebServlet(name = "anadeUsuarioServlet", urlPatterns = {"/anadeUsuarioServlet"})
 public class anadeUsuarioServlet extends HttpServlet {
     
+    @EJB
+    private ClienteFacade clienteFacade;
+
     /**
      * Limpia atributos temporales, guardados en la sesión, si al usuario le ha faltado algún campo por validar
      * @param request 
@@ -35,11 +38,8 @@ public class anadeUsuarioServlet extends HttpServlet {
         request.getSession().setAttribute("telefono", null);
     }
     
-    @EJB
-    private ClienteFacade clienteFacade;
-
-
-
+    
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *

@@ -14,6 +14,11 @@
     </jsp:attribute>
 
     <jsp:body>
+        <script>
+            $(document).ready(function() {
+                selectandtitle("#liofertas", "ChequeTeatinos - Ofertas"); 
+            });
+        </script>        
         <section>
             <h2>Nueva Oferta</h2>
             <form name="formcontacto" action="" method="post">

@@ -26,6 +26,17 @@ public class modificaUsuarioServlet extends HttpServlet {
     @EJB
     private ClienteFacade clienteFacade;
     
+    /**
+     * Limpia atributos temporales, guardados en la sesión, si al usuario le ha faltado algún campo por validar
+     * @param request 
+     */
+    private void limpiaAtributos(HttpServletRequest request){
+        request.getSession().setAttribute("email", null);
+        request.getSession().setAttribute("password", null);
+        request.getSession().setAttribute("nombre", null);
+        request.getSession().setAttribute("apellidos", null);
+        request.getSession().setAttribute("telefono", null);
+    }   
     
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -53,8 +64,26 @@ public class modificaUsuarioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String email = request.getParameter("email");
-        Cliente c = clienteFacade.find(email);
-        if (c != null){
+        
+        if(request.getParameter("email").isEmpty() || request.getParameter("password").isEmpty() || request.getParameter("nombre").isEmpty()
+                || request.getParameter("apellidos").isEmpty() || request.getParameter("telefono").isEmpty()){
+            if(!request.getParameter("email").isEmpty())
+                request.getSession().setAttribute("email", request.getParameter("email"));
+            if(!request.getParameter("password").isEmpty())
+                request.getSession().setAttribute("password", request.getParameter("password"));
+            if(!request.getParameter("nombre").isEmpty())
+                request.getSession().setAttribute("nombre", request.getParameter("nombre"));
+            if(!request.getParameter("apellidos").isEmpty())
+                request.getSession().setAttribute("apellidos", request.getParameter("apellidos"));
+            if(!request.getParameter("telefono").isEmpty())
+                request.getSession().setAttribute("telefono", request.getParameter("telefono"));
+            
+            request.getRequestDispatcher("account.jsp").forward(request, response); //Crear pagina error de login
+        }
+        else{
+            limpiaAtributos(request);
+            Cliente c = clienteFacade.find(email);
+            if (clienteFacade.find(email) != null){
             c.setPass(request.getParameter("password"));
             c.setApellidos(request.getParameter("apellidos"));
             c.setNombre(request.getParameter("nombre"));
@@ -62,9 +91,12 @@ public class modificaUsuarioServlet extends HttpServlet {
             clienteFacade.edit(c);
             request.getRequestDispatcher("loginServlet").forward(request, response);
         }
-        else{
-            System.out.println("Email no encontrado. No debería meterse aquí");
-        }
+            else{
+                System.out.println("Email no encontrado. No debería meterse aquí");
+            }
+        }        
+        
+        
     }
 
     /**

@@ -8,13 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:genericpage>
-    <jsp:attribute name="header">
-        <jsp:include page="structpage/header_admin.jsp" />      
-    </jsp:attribute>
+<t:genericpage_loginadmin>
 
     <jsp:body>
-        <section>
             <h2> Login  </h2>
             <div id="formulario">
                 <form name="formcontacto" action="loginadminServlet" method="post">
@@ -27,6 +23,5 @@
                   </div>
                 </form>                
             </div>
-        </section>
     </jsp:body>
-</t:genericpage>
+</t:genericpage_loginadmin>>

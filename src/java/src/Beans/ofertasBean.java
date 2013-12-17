@@ -1,17 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-package Beans;
+package src.Beans;
 
 import src.Entities.Oferta;
+import java.util.List;
 
+/**
+ *
+ * @author diegoojedagarcia
+ */
 public class ofertasBean {
-    private Oferta o;
+    private List<Oferta> ofertas;
 
-    public Oferta getOfer() {
-        return o;
+    public List<Oferta> getOfertas() {
+        return ofertas;
     }
 
-    public void setOfer(Oferta o) {
-        this.o = o;
+    public void setOfertas(List<Oferta> ofertas) {
+        this.ofertas = ofertas;
     }
     
 }

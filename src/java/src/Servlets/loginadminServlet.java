@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import src.Beans.empresasBean;
-import src.Beans.homeBean;
+import src.Beans.ofertasBean;
 import src.Beans.loginBean;
 
 
@@ -79,7 +79,7 @@ public class loginadminServlet extends HttpServlet {
                 request.getRequestDispatcher("admin.jsp").forward(request, response);
             }
             else{
-                homeBean h = new homeBean();
+                ofertasBean h = new ofertasBean();
                 h.setOfertas(ofertaFacade.findAll());
                 request.setAttribute("ofertas", h);
                 
@@ -92,7 +92,7 @@ public class loginadminServlet extends HttpServlet {
                 sesion.setAttribute("login", lb);
                 sesion.setAttribute("ofertas", h);
                 sesion.setAttribute("empresas", em);
-                request.getRequestDispatcher("paneladmin.jsp").forward(request, response);
+                request.getRequestDispatcher("offersadmin.jsp").forward(request, response);
             }
         }
     }

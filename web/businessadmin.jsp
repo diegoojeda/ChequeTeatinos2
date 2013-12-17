@@ -20,6 +20,7 @@
             });
         </script>          
         <section>
+            <br><h5><a href="addbusinessadmin.jsp"><input class="botones" type="button" value="Añadir Empresa" /></a></h5>
                        
         </section>
     </jsp:body>

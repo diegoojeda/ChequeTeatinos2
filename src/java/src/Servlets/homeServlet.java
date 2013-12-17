@@ -1,6 +1,6 @@
 package src.Servlets;
 
-import src.Beans.homeBean;
+import src.Beans.ofertasBean;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -26,7 +26,7 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        homeBean h = new homeBean();
+        ofertasBean h = new ofertasBean();
         h.setOfertas(ofertaFacade.findAll());
         request.setAttribute("ofertas", h);
         request.getRequestDispatcher("home.jsp").forward(request, response);
@@ -43,7 +43,7 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        homeBean h = new homeBean();
+        ofertasBean h = new ofertasBean();
         h.setOfertas(ofertaFacade.findAll());
         request.setAttribute("ofertas", h);
         request.getRequestDispatcher("home.jsp").forward(request, response);

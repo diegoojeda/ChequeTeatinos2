@@ -16,7 +16,7 @@
     <jsp:body>
         <script>
             $(document).ready(function() {
-                selectandtitle("#liempresas", "ChequeTeatinos - Empresas"); 
+                selectandtitle("#liclientes", "ChequeTeatinos - Clientes"); 
             });
         </script>          
         <section>

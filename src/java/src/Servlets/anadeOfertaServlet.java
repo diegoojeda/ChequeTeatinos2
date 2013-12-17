@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import src.Beans.homeBean;
+import src.Beans.ofertasBean;
 import src.Entities.Oferta;
 import src.Facades.EmpresaFacade;
 import src.Facades.OfertaFacade;
@@ -62,7 +62,7 @@ public class anadeOfertaServlet extends HttpServlet {
         ofertaFacade.create(o);
         empresaFacade.find(o.getId()).getOfertaCollection().add(o); //Ligamos la oferta a la empresa
         
-        homeBean h = new homeBean();
+        ofertasBean h = new ofertasBean();
         h.setOfertas(ofertaFacade.findAll());
         request.setAttribute("ofertas", h);
         request.getRequestDispatcher("paneladmin.jsp").forward(request, response); //Crear pagina error de login        

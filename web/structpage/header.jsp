@@ -44,19 +44,17 @@
         </ul>
         <div class="loginaccount">
             <c:if test="${empty login.cli.email}"><!-- Si no estás logeado -->
-                <a href="signup.jsp"><input class="submit" type="button" value="Nuevo" /></a>
-                <a href="login.jsp"><input class="submit" type="button" value="Login" /></a>
+                <h6><a href="signup.jsp"><input class="botones" type="button" value="Nuevo" /></a>
+                <a href="login.jsp"><input class="botones" type="button" value="Login" /></a></h6>
             </c:if>
             <c:if test="${not empty login.cli.email}">
                 <div class="mismalinea">
                     <form action="disconnectServlet" method="post">
-                        Se ha conectado como: <a href="account.jsp">${login.cli.nombre}&nbsp;&nbsp;</a>
-                        <input type="submit" value="Desconectar" />
+                        <h6>Se ha conectado como: <a href="account.jsp">${login.cli.nombre}&nbsp;&nbsp;</a>
+                        <input class="botones" type="submit" value="Desconectar" /></h6>
                     </form> 
                 </div>
             </c:if>
         </div>
     </nav>
 </header>
-
-<!-- http://www.omeyasweb.com/ora-12519-tnsno-appropriate-service-handler-found/ -->

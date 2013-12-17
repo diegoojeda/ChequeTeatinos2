@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import src.Beans.homeBean;
+import src.Beans.ofertasBean;
 import src.Entities.Oferta;
 import src.Facades.OfertaFacade;
 
@@ -29,7 +29,7 @@ public class TiposOfertasServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Oferta> ofertas = ofertaFacade.findOfertasbyTipo(request.getParameter("tipo"));
-        homeBean hb = new homeBean();
+        ofertasBean hb = new ofertasBean();
         hb.setOfertas(ofertas);
         request.setAttribute("ofertas", hb);
         request.getRequestDispatcher("home.jsp").forward(request, response);

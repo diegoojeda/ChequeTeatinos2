@@ -14,13 +14,16 @@
     </jsp:attribute>
 
     <jsp:body>
+        <script>
+            $(document).ready(function() {
+                selectandtitle("#liofertas", "ChequeTeatinos - Ofertas"); 
+            });
+        </script>        
         <section>
-            <h2> Panel Administración ${login.cli.nombre}</h2>
             <form name="formcontacto" action="eliminaOfertaServlet" method="get">
                 <!-- Añadir o eliminar oferta -->
-                <a href="addofferadmin.jsp"><input class="submit" type="button" value="Añadir Oferta" /></a>
-                <a href="addbusinessadmin.jsp"><input class="submit" type="button" value="Añadir Empresa" /></a><!-- Debería ir solo para añadir oferta -->
-                <input class="submit" type="submit" value="Eliminar Oferta" />
+                <br><h5><a href="addofferadmin.jsp"><input class="botones" type="button" value="Añadir Oferta" /></a>
+                <input class="botones" type="submit" value="Eliminar Oferta" /></h5>
                 
                 <!-- Tabla ofertas -->
                 <table border="1">
