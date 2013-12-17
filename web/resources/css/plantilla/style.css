@@ -351,3 +351,9 @@ table tr th, table tr td
 table tr td
 { 
 }
+
+.iconos{
+    height: 70px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+}
