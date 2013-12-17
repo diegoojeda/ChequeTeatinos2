@@ -21,7 +21,7 @@
         </script>        
         <section>
             <h2>Nueva Oferta</h2>
-            <form name="formcontacto" action="" method="post">
+            <form name="formcontacto" action="anadeOfertaServlet" method="post">
               <div class="form_settings">
                 <!-- Campos formulario -->
                 <input class="contact" type="email" name="email" required hidden="true"/>

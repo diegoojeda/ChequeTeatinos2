@@ -64,6 +64,7 @@ public class anadeOfertaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
+        System.out.println("DOPOST ANADE OFERTA");
         if(request.getParameter("nombre").isEmpty() || request.getParameter("empresa").isEmpty() || request.getParameter("descripcion").isEmpty()
                 || request.getParameter("existencias").isEmpty() || request.getParameter("fechaValidez").isEmpty() || request.getParameter("precioConOferta").isEmpty() || 
                 request.getParameter("precioOriginal").isEmpty()){
