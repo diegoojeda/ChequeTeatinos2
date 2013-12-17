@@ -17,17 +17,20 @@
     <jsp:body>
         <jsp:include page="structpage/aside.jsp" />
         <section>
-            <h2> Login </h2>
+            <h2> Login </h2>                
             <div id="formulario">
                 <form name="formcontacto" action="loginServlet" method="post">
                   <div class="form_settings">
                     <p><span>Email</span><input class="contact" type="email" name="email" required/></p>
                     <p><span>Contraseña</span><input class="contact" type="password" name="password" required/></p>
-                    <div class="mismalinea">
-                        <input class="submit" type="submit" value="Entrar" />
+                    <div>
+                        <p><input class="submit" type="submit" value="Entrar" /></p>
                     </div>
+                    <c:if test="${not empty errorlogin}">
+                        <h5 class="error">${errorlogin}</h5>
+                    </c:if>
                   </div>
-                </form>                
+                </form> 
             </div>
         </section>
     </jsp:body>

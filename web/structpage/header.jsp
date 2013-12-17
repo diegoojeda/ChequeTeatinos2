@@ -47,7 +47,7 @@
                 <h6><a href="signup.jsp"><input class="botones" type="button" value="Nuevo" /></a>
                 <a href="login.jsp"><input class="botones" type="button" value="Login" /></a></h6>
             </c:if>
-            <c:if test="${not empty login.cli.email && login.cli.esAdmin == false}">
+            <c:if test="${not empty login.cli.email}">
                 <div class="mismalinea">
                     <form action="disconnectServlet" method="post">
                         <h6>Se ha conectado como: <a href="account.jsp">${login.cli.nombre}&nbsp;&nbsp;</a>

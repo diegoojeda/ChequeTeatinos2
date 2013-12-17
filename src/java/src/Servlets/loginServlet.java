@@ -54,10 +54,12 @@ public class loginServlet extends HttpServlet {
             } catch (Exception e) {
                 request.getRequestDispatcher("error.jsp").forward(request, response); //Crear pagina error de login
             }
-            if(lb.getCli() == null){
+            if(lb.getCli() == null || lb.getCli().getEsAdmin() == 1){
+                request.setAttribute("errorlogin", "Usuario y/o contraseña incorrectos");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
             else{
+                request.setAttribute("errorlogin", "");
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("login", lb);
                 request.getRequestDispatcher("homeServlet").forward(request, response);

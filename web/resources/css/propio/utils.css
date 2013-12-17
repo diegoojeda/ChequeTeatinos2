@@ -187,3 +187,8 @@ root {
 .offer.hover { text-decoration: none; }
 .offer.hover .model { font-weight: bold; }
 .offer.hover .details { color: #ff7800; } 
+
+.error{
+    margin-top: 10px;
+    color:red;
+}
