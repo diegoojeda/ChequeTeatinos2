@@ -41,7 +41,7 @@
             </c:if>
                 
             <div class="row">
-            <c:forEach var="oferta" items="${ofertas.ofertas}" >
+            <c:forEach var="oferta" items="${ofertas.ofertas}">
                 <ul>
                     <li>
                         <img src="<c:url value="cargarImagenBD"><c:param name="id" value="${oferta.empresa.id}"/></c:url>"
