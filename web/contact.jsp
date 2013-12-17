@@ -14,6 +14,12 @@
     </jsp:attribute>
 
     <jsp:body>
+        <script>
+            $(document).ready(function() {
+                selectandtitle("#licontacto", "ChequeTeatinos - Contacto"); 
+            });
+        </script>                         
+        
         <jsp:include page="structpage/aside.jsp" />
         <section>
             <h2>Contacto</h2>

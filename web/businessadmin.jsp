@@ -13,7 +13,7 @@
         <jsp:include page="structpage/header_admin.jsp" />      
     </jsp:attribute>
 
-    <jsp:body>
+    <jsp:body>        
         <script>
             $(document).ready(function() {
                 selectandtitle("#liempresas", "ChequeTeatinos - Empresas"); 
