@@ -18,7 +18,6 @@
         <section>
             <h2>Contacto</h2>
             <div id="formulario">
-                <h2>Contacta con nosotros</h2>          
                 <form name="formcontacto" action="" method="post">
                   <div class="form_settings">
                     <p><span>Nombre</span><input class="contact" type="text" name="nombre" value="" required/></p>
