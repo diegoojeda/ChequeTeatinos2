@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import src.Facades.OfertaFacade;
+import src.Facades.EmpresaFacade;
 import sun.misc.BASE64Decoder;
 
 /**
@@ -23,34 +23,7 @@ import sun.misc.BASE64Decoder;
 @WebServlet(name = "cargarImagenBD", urlPatterns = {"/cargarImagenBD"})
 public class cargarImagenBD extends HttpServlet {
     @EJB
-    private OfertaFacade ofertaFacade;
-    
-    /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet cargarImagenBD</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet cargarImagenBD at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+    private EmpresaFacade empresaFacade;
     
     /**
      * Handles the HTTP
@@ -64,7 +37,6 @@ public class cargarImagenBD extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //        processRequest(request, response);
         // Cargamos desde la BD
         
         ServletOutputStream out = response.getOutputStream();
@@ -72,11 +44,8 @@ public class cargarImagenBD extends HttpServlet {
         // Decodificamos
         BASE64Decoder d = new BASE64Decoder();
         byte[] datosImagen = d.decodeBuffer(datos);
-
         out.write(datosImagen);
         out.flush();
-//        request.setAttribute("imagen", datosImagen);
-        //request.getRequestDispatcher("verImagen.jsp").forward(request, response);
     }
     
     /**
@@ -91,7 +60,7 @@ public class cargarImagenBD extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        super.doPost(request, response);
     }
     
     /**
@@ -105,8 +74,7 @@ public class cargarImagenBD extends HttpServlet {
     }
     
     public String cargarDesdeLaBaseDeDatos(int id){
-//        String datos = (String) ofertaFacade.find(id).getImagen();
-//        return datos;
-        return null;
+        String datos = (String) empresaFacade.find(id).getImagen();
+        return datos;
     }
 }

@@ -26,5 +26,5 @@ public class PedidoOfertaFacade extends AbstractFacade<PedidoOferta> {
     public PedidoOfertaFacade() {
         super(PedidoOferta.class);
     }
-    
+
 }

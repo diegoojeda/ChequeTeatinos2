@@ -96,5 +96,5 @@ public class PedidoOferta implements Serializable {
     public String toString() {
         return "src.Entities.PedidoOferta[ id=" + id + " ]";
     }
-    
+
 }

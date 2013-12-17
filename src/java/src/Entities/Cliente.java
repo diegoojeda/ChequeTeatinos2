@@ -133,5 +133,5 @@ public class Cliente implements Serializable {
     public String toString() {
         return "src.Entities.Cliente[ email=" + email + " ]";
     }
-    
+
 }

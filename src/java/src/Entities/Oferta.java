@@ -186,5 +186,5 @@ public class Oferta implements Serializable {
     public String toString() {
         return "src.Entities.Oferta[ id=" + id + " ]";
     }
-    
+
 }

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import src.Entities.Oferta;
 import src.Facades.OfertaFacade;
 
-
 @WebServlet(name = "carritoServlet", urlPatterns = {"/carritoServlet"})
 public class carritoServlet extends HttpServlet {
     @EJB

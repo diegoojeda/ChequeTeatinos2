@@ -1,7 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package src.Servlets;
 
 import java.io.DataInputStream;
@@ -12,8 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import src.Entities.Oferta;
-import src.Facades.OfertaFacade;
+import src.Entities.Empresa;
+import src.Facades.EmpresaFacade;
 import sun.misc.BASE64Encoder;
 
 /**
@@ -23,7 +23,7 @@ import sun.misc.BASE64Encoder;
 @WebServlet(name = "guardarImagenBD", urlPatterns = {"/guardarImagenBD"})
 public class guardarImagenBD extends HttpServlet {
     @EJB
-    private OfertaFacade ofertaFacade;
+    private EmpresaFacade empresaFacade;
     
     /**
      * Handles the HTTP
@@ -52,8 +52,8 @@ public class guardarImagenBD extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String contentType = request.getContentType();
         
+        String contentType = request.getContentType();
         if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0))
         {
             // Cogemos el flujo de entrada
@@ -90,8 +90,10 @@ public class guardarImagenBD extends HttpServlet {
             
             // Copiamos los datos en un array
             byte[] datosArchivo = new byte[(endPos - startPos)];
-            System.arraycopy(dataBytes, startPos, datosArchivo, 0, (endPos - startPos));
-            
+            System.err.println("dataBytes: " + dataBytes.length + " " + startPos);
+            System.err.println("datosArchivo: " + datosArchivo.length + " " + (endPos-startPos));
+//            System.err.println("ASDFASDFASDFASFD");
+            System.arraycopy(dataBytes, startPos, datosArchivo, 0, dataBytes.length-startPos);
             // Codificamos a Base64
             BASE64Encoder e = new BASE64Encoder();
             String datos = e.encodeBuffer(datosArchivo);
@@ -100,6 +102,7 @@ public class guardarImagenBD extends HttpServlet {
             guardarEnLaBD(datos);
             request.getRequestDispatcher("formCargaImagen.jsp").forward(request, response);
         }
+        
     }
     
     /**
@@ -112,8 +115,8 @@ public class guardarImagenBD extends HttpServlet {
         return "Short description";
     }
     public void guardarEnLaBD(String datos){
-        Oferta o = ofertaFacade.find(1);
-//        o.setImagen(datos);
-        ofertaFacade.edit(o);
+        Empresa e = empresaFacade.find(6);
+        e.setImagen(datos);
+        empresaFacade.edit(e);
     }
 }

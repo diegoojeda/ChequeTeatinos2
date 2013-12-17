@@ -123,5 +123,5 @@ public class Empresa implements Serializable {
     public String toString() {
         return "src.Entities.Empresa[ id=" + id + " ]";
     }
-    
+
 }

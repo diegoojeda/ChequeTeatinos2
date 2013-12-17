@@ -14,6 +14,7 @@ import src.Facades.OfertaFacade;
 public class homeServlet extends HttpServlet {
     @EJB
     private OfertaFacade ofertaFacade;
+    
 
     /**
      * Handles the HTTP <code>GET</code> method.

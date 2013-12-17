@@ -8,6 +8,6 @@
     <body>
         <h1>Imagen: </h1>
         <%--<jsp:forward page="cargarImagenBD" />--%>
-        <img src="cargarImagenBD?id=1"/>
+        <img src="cargarImagenBD?id=6"/>
     </body>
 </html>

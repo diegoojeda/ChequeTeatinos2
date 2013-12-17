@@ -18,17 +18,17 @@ import src.Entities.Oferta;
 public class OfertaFacade extends AbstractFacade<Oferta> {
     @PersistenceContext(unitName = "ChequeTeatinosPU")
     private EntityManager em;
-
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-
+    
     public OfertaFacade() {
         super(Oferta.class);
     }
      public int getNextSeqVal (){
-        List<Integer> seq = em.createQuery("select seq_oferta.nextval from dual;").getResultList();
+        List<Integer> seq = em.createQuery("SELECT seq_oferta.nextval FROM dual").getResultList();
         return seq.get(0);
     }
     
