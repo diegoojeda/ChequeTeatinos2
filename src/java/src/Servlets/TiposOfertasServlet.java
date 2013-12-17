@@ -30,9 +30,23 @@ public class TiposOfertasServlet extends HttpServlet {
             throws ServletException, IOException {
         List<Oferta> ofertas = ofertaFacade.findOfertasbyTipo(request.getParameter("tipo"));
         ofertasBean hb = new ofertasBean();
-        hb.setTipo(request.getParameter("tipo"));
         hb.setOfertas(ofertas);
         request.setAttribute("ofertas", hb);
+        
+        if("Alojamiento".equals(request.getParameter("tipo"))){
+            System.out.println("lkajsfdlkjasldkñfjlñkajsñdlkfjalñskjdfñ");
+            request.setAttribute("idul", "#lialojamiento");
+            request.setAttribute("title", "Alojamiento");
+            
+        }else if("Ocio".equals(request.getParameter("tipo"))){
+            request.setAttribute("idul", "#liocio");
+            request.setAttribute("title", "Ocio");
+        }
+        else{
+            request.setAttribute("idul", "#lirestaurantes");
+            request.setAttribute("title", "Restaurantes");
+        }
+        
         request.getRequestDispatcher("home.jsp").forward(request, response);
 //        ofertasBean o = new ofertasBean();
 //        o.setOfer((Oferta)ofertaFacade.findAll());

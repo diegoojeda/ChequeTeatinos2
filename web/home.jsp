@@ -14,22 +14,33 @@
     </jsp:attribute>
     
     <jsp:body>
+        <c:if test="${empty idul}">
+            <script>
+                $(document).ready(function() {
+                    selectandtitle("#liinicio", "ChequeTeatinos - Inicio"); 
+                });
+            </script>  
+        </c:if>
+        <c:if test="${not empty idul}">
+            <script>
+                $(document).ready(function() {
+                    selectandtitle("${idul}", "ChequeTeatinos - ${title}"); 
+                });
+            </script>  
+        </c:if>
+            
+            
+            
         <jsp:include page="structpage/aside.jsp" />
         <section>
-            <c:if test="${empty ofertas.tipo}">
+            <c:if test="${empty idul}">
                 <h2>¡Últimas ofertas!</h2>
             </c:if>
-            <c:if test="${ofertas.tipo == 'Comida'}">
-                <h2>Restaurantes</h2>
-            </c:if>
-            <c:if test="${ofertas.tipo == 'Ocio'}">
-                <h2>Ocio</h2>
-            </c:if>
-            <c:if test="${ofertas.tipo == 'Alojamiento'}">
-                <h2>Alojamiento</h2>
+            <c:if test="${not empty idul}">
+                <h2>${title}</h2>
             </c:if>
             <div class="row">
-            <c:forEach var="oferta" items="${ofertas.ofertas}" end="5" >
+            <c:forEach var="oferta" items="${ofertas.ofertas}">
                 <ul>
                     <li>
                         <img src="<c:url value="cargarImagenBD"><c:param name="id" value="${oferta.empresa.id}"/></c:url>"

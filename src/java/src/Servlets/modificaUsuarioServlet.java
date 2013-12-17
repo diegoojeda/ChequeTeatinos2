@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import src.Beans.loginBean;
 import src.Entities.Cliente;
 import src.Facades.ClienteFacade;
 
@@ -78,19 +79,25 @@ public class modificaUsuarioServlet extends HttpServlet {
             if(!request.getParameter("telefono").isEmpty())
                 request.getSession().setAttribute("telefono", request.getParameter("telefono"));
             
+            request.setAttribute("error", "Debe rellenar todos los campos");
             request.getRequestDispatcher("account.jsp").forward(request, response); //Crear pagina error de login
         }
         else{
             limpiaAtributos(request);
             Cliente c = clienteFacade.find(email);
             if (clienteFacade.find(email) != null){
-            c.setPass(request.getParameter("password"));
-            c.setApellidos(request.getParameter("apellidos"));
-            c.setNombre(request.getParameter("nombre"));
-            c.setTelefono(Integer.parseInt(request.getParameter("telefono")));
-            clienteFacade.edit(c);
-            request.getRequestDispatcher("loginServlet").forward(request, response);
-        }
+                c.setPass(request.getParameter("password"));
+                c.setApellidos(request.getParameter("apellidos"));
+                c.setNombre(request.getParameter("nombre"));
+                c.setTelefono(Integer.parseInt(request.getParameter("telefono")));
+                clienteFacade.edit(c);
+                
+                loginBean lb = new loginBean();
+                lb.setCli(c);
+                request.setAttribute("notificacion", "Cambios realizados con éxito");
+                request.setAttribute("login", lb);
+                request.getRequestDispatcher("account.jsp").forward(request, response);
+            }
             else{
                 System.out.println("Email no encontrado. No debería meterse aquí");
             }

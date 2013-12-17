@@ -29,6 +29,10 @@
                 <c:if test="${not empty notificacion}">
                     <h5 class="info">${notificacion}</h5>
                 </c:if>
+                <c:if test="${not empty errorlogin}">
+                    <h5 class="error">${errorlogin}</h5>
+                </c:if>
+                    
               
               </div>
             </form>
