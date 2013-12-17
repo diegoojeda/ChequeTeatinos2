@@ -16,11 +16,13 @@
     <jsp:body>
         <jsp:include page="structpage/aside.jsp" />
         <section>
-            <div class="product" title="OferDetail">
-                 <img src="" alt="Company Image"/>
+            <div class="offer" title="OferDetail">
+                <span clas="detailed">
                  <span class="order model">
                      ${ofertaDetalle.ofe.nombreOferta}
                  </span>
+                 <img src="<c:url value="cargarImagenBD"><c:param name="id" value="${oferta.empresa.id}"/></c:url>"
+                             alt="Company Image"/>
                  ${ofertaDetalle.ofe.descripcion}
                     <span class="order">
                         <span class="price">
@@ -28,15 +30,13 @@
                         <span class="euros">
                             €
                         </span>
-                        </span>
-                    </span>
-                    <span class="price">
-                        <span class="pricebefore">
+                        <span class="before">
                             Antes: ${ofertaDetalle.ofe.precioOriginal}
                         <span class="euros">
                             €
                         </span>
                         </span>     
+                        </span>
                     </span>
                <a href="
                <c:url value="carritoServlet">
@@ -44,6 +44,7 @@
                </c:url>">
                <span class="details">Añadir al carrito</span> 
                 </a>
+                </span>
             </div> 
             
         </section>

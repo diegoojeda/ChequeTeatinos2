@@ -146,23 +146,7 @@ root {
 .row { padding: 20px 0 23px 0; background: url(images/border.png) repeat-x 0 bottom; width: 980px; overflow: hidden; }
 .last-row { background: none; }
 .row ul { width: 900px; display: block; position: relative; }
-.row ul li { float: left; display: inline; width: 232px; height: 266px; padding: 0 19px 0 0; }
-
-
-.product { background: url(images/product-bg.png) no-repeat 0 0; width: 202px; height: 252px; padding: 14px 14px 0 16px; display: block; font-size: 14px; line-height: 18px; color: #2f3032; font-family: georgia, serif; }
-.product { font-style: italic; }
-.product img { padding: 0 0 10px 0; position: relative; margin-left: -2px; }
-.product .order { display: block; }
-.product .model { font-size: 16px; color: #1898d6; padding: 0 0 2px 0; }
-.product .number { font-family: arial, sans-serif; font-style: normal; }
-.product .details { font-size: 18px; line-height: 30px; color: #ffba00; font-style: normal; font-weight: bold; letter-spacing: -1px; float: left; display: inline; padding: 8px 0 0 0; }
-.product .pricebefore {opacity: 0.75; text-decoration: line-through; font-size: 20px; line-height: 40px; display: inline; font-style: normal; color:#1898d6 ; font-weight: bold; }
-.product .price { font-size: 30px; line-height: 40px; float: right; display: inline; font-style: normal; color: #1898d6; font-weight: bold; }
-.product .euro { font-size: 20px; }
-.product:hover,
-.product.hover { background: url(images/product-hover.png) no-repeat 0 0; text-decoration: none; }
-.product.hover .model { font-weight: bold; }
-.product.hover .details { color: #ff7800; }    
+.row ul li { float: left; display: inline; width: 232px; height: 266px; padding: 0 20px 20px 30px; }
 
 .botones{
     padding: 5px; 
@@ -173,3 +157,33 @@ root {
   background: #FFF; 
   color: #47433F;
 }
+
+.product { background: url(images/product-bg.png) no-repeat 0 0; width: 202px; height: 252px; padding: 14px 14px 0 16px; display: block; font-size: 14px; line-height: 18px; color: #2f3032; font-family: georgia, serif; }
+.product { font-style: italic; }
+.product img { padding: 0 0 10px 0; position: relative; margin-left: -2px; }
+.product .order { display: block; }
+.product .model { font-size: 16px; color: #1898d6; padding: 0 0 2px 0;  }
+.product .number { font-family: arial, sans-serif; font-style: normal; }
+.product .details { font-size: 18px; line-height: 30px; color: #ffba00; font-style: normal; font-weight: bold; letter-spacing: -1px; float: left; display: inline; padding: 8px 0 0 0; }
+.product .pricebefore {opacity: 0.75; text-decoration: line-through; font-size: 20px; line-height: 40px; display: inline; font-style: normal; color:#1898d6 ; font-weight: bold; }
+.product .price { font-size: 30px; line-height: 40px; float: right; display: inline; font-style: normal; color: #1898d6; font-weight: bold; }
+.product .euro { font-size: 20px; }
+.product:hover,
+.product.hover { background: url(images/product-hover.png) no-repeat 0 0; text-decoration: none; }
+.product.hover .model { font-weight: bold; }
+.product.hover .details { color: #ff7800; }    
+
+.offer { width: 500px; height: 500px; padding: 20px 20px 0 100px; display: block; font-size: 14px; line-height: 18px; color: #2f3032; font-family: georgia, serif; }
+.offer { font-style: italic; }
+.offer img { padding: 0 0 10px 0; position: relative; margin-left: -2px; }
+.offer .order { display: block; margin-top:20px; margin-bottom: 20px }
+.offer .model { font-size: 20px; color: #1898d6; padding: 0 0 10px 0; }
+.offer .number { font-family: arial, sans-serif; font-style: normal; }
+.offer .details { font-size: 18px; line-height: 30px; color: #ffba00; font-style: normal; font-weight: bold; letter-spacing: -1px; float: left; display: inline; padding: 20px 0 0 0; }
+.offer .price { font-size: 30px; line-height: 40px; float: right; display: inline; font-style: normal; color: #1898d6; font-weight: bold; }
+.offer .price .before {opacity: 0.75; text-decoration: line-through; font-size: 20px;  float:right;}
+.offer .euro { font-size: 20px; }
+.offer:hover,
+.offer.hover { text-decoration: none; }
+.offer.hover .model { font-weight: bold; }
+.offer.hover .details { color: #ff7800; } 
