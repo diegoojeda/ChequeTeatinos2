@@ -75,7 +75,7 @@ public class disconnectServlet extends HttpServlet {
             throws ServletException, IOException {
         request.getSession().removeAttribute("login");
         request.getSession().invalidate();
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("homeServlet");
     }
 
     /**
