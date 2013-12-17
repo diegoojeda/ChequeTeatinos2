@@ -24,6 +24,21 @@ public class anadeOfertaServlet extends HttpServlet {
     private OfertaFacade ofertaFacade;
     
     /**
+     * Limpia atributos temporales, guardados en la sesión, si al usuario le ha faltado algún campo por validar
+     * @param request 
+     */
+    private void limpiaAtributos(HttpServletRequest request){
+        request.getSession().setAttribute("nombre", null);
+        request.getSession().setAttribute("empresa", null);
+        request.getSession().setAttribute("descripcion", null);
+        request.getSession().setAttribute("existencias", null);
+        request.getSession().setAttribute("fechaValidez", null);
+        request.getSession().setAttribute("precioConOferta", null);
+        request.getSession().setAttribute("precioOriginal", null);
+        
+    }
+    
+    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -48,24 +63,50 @@ public class anadeOfertaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        Oferta o = new Oferta(ofertaFacade.getNextSeqVal());
-        o.setDescripcion(request.getParameter("descripcion"));
-        o.setEmpresa(empresaFacade.find(request.getParameter("empresa"))); //Provisional
-        o.setExistencias((short)Integer.parseInt(request.getParameter("existencias")));
-        o.setFechaValidez(Date.valueOf(request.getParameter("fechaValidez")));
-        o.setNombreOferta(request.getParameter("nombre"));
-        o.setPrecioConOferta(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioConOferta"))));
-        o.setPrecioOriginal(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioOriginal"))));
-        
-        ofertaFacade.create(o);
-        empresaFacade.find(o.getId()).getOfertaCollection().add(o); //Ligamos la oferta a la empresa
-        
-        ofertasBean h = new ofertasBean();
-        h.setOfertas(ofertaFacade.findAll());
-        request.setAttribute("ofertas", h);
-        request.getRequestDispatcher("paneladmin.jsp").forward(request, response); //Crear pagina error de login        
+            
+        if(request.getParameter("nombre").isEmpty() || request.getParameter("empresa").isEmpty() || request.getParameter("descripcion").isEmpty()
+                || request.getParameter("existencias").isEmpty() || request.getParameter("fechaValidez").isEmpty() || request.getParameter("precioConOferta").isEmpty() || 
+                request.getParameter("precioOriginal").isEmpty()){
+            
+            if(!request.getParameter("nombre").isEmpty())
+                request.getSession().setAttribute("nombre", request.getParameter("nombre"));
+            if(!request.getParameter("empresa").isEmpty())
+                request.getSession().setAttribute("empresa", request.getParameter("empresa"));
+            if(!request.getParameter("descripcion").isEmpty())
+                request.getSession().setAttribute("descripcion", request.getParameter("descripcion"));
+            if(!request.getParameter("existencias").isEmpty())
+                request.getSession().setAttribute("existencias", request.getParameter("existencias"));
+            if(!request.getParameter("fechaValidez").isEmpty())
+                request.getSession().setAttribute("fechaValidez", request.getParameter("fechaValidez"));
+            if(!request.getParameter("precioConOferta").isEmpty())
+                request.getSession().setAttribute("precioConOferta", request.getParameter("precioConOferta"));
+            if(!request.getParameter("precioOriginal").isEmpty())
+                request.getSession().setAttribute("precioOriginal", request.getParameter("precioOriginal"));
+            
+            request.getRequestDispatcher("addofferadmin.jsp").forward(request, response); //Crear pagina error de login
+        }
+        else{
+            limpiaAtributos(request);
+            Oferta o = new Oferta(ofertaFacade.getNextSeqVal());
+            o.setNombreOferta(request.getParameter("nombre"));
+            o.setEmpresa(empresaFacade.find(request.getParameter("empresa"))); //Provisional
+            o.setDescripcion(request.getParameter("descripcion"));
+            o.setExistencias((short)Integer.parseInt(request.getParameter("existencias")));
+            o.setFechaValidez(Date.valueOf(request.getParameter("fechaValidez")));
+            o.setPrecioConOferta(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioConOferta"))));
+            o.setPrecioOriginal(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioOriginal"))));
+
+            ofertaFacade.create(o);
+            empresaFacade.find(o.getId()).getOfertaCollection().add(o); //Ligamos la oferta a la empresa
+
+            ofertasBean h = new ofertasBean();
+            h.setOfertas(ofertaFacade.findAll());
+            request.setAttribute("ofertas", h);
+            request.getRequestDispatcher("offersadmin.jsp").forward(request, response); //Crear pagina error de login        
+            
+            
+            
+        }    
     }
 
     /**
