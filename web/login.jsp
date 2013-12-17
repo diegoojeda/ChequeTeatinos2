@@ -21,8 +21,8 @@
             <div id="formulario">
                 <form name="formcontacto" action="loginServlet" method="post">
                   <div class="form_settings">
-                    <p><span>Email</span><input class="contact" type="email" name="email" required/></p>
-                    <p><span>Contraseña</span><input class="contact" type="password" name="password" required/></p>
+                    <p><span>Email</span><input class="contact" type="email" name="email" required value="${email}"/></p>
+                    <p><span>Contraseña</span><input class="contact" type="password" name="password" required value="${pass}"/></p>
                     <div>
                         <p><input class="submit" type="submit" value="Entrar" /></p>
                     </div>
