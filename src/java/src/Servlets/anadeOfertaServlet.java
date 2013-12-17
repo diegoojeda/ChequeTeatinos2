@@ -4,6 +4,7 @@ package src.Servlets;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +36,18 @@ public class anadeOfertaServlet extends HttpServlet {
         request.getSession().setAttribute("fechaValidez", null);
         request.getSession().setAttribute("precioConOferta", null);
         request.getSession().setAttribute("precioOriginal", null);
+    }
+    
+    private int idnuevaoferta(){
+        int idnueva = 0;
+        List<Oferta> o = ofertaFacade.findAll();
         
+        for(int i=0; i<o.size(); i++){
+            if(idnueva < o.get(i).getId())
+                idnueva = o.get(i).getId();
+        }
+        
+        return idnueva+1;
     }
     
     /**
@@ -88,9 +100,10 @@ public class anadeOfertaServlet extends HttpServlet {
         }
         else{
             limpiaAtributos(request);
-            Oferta o = new Oferta(ofertaFacade.getNextSeqVal());
+            Oferta o = new Oferta();
+            o.setId(idnuevaoferta());
             o.setNombreOferta(request.getParameter("nombre"));
-            o.setEmpresa(empresaFacade.find(request.getParameter("empresa"))); //Provisional
+            o.setEmpresa(empresaFacade.find(Integer.parseInt(request.getParameter("empresa")))); //Provisional
             o.setDescripcion(request.getParameter("descripcion"));
             o.setExistencias((short)Integer.parseInt(request.getParameter("existencias")));
             o.setFechaValidez(Date.valueOf(request.getParameter("fechaValidez")));
@@ -98,15 +111,11 @@ public class anadeOfertaServlet extends HttpServlet {
             o.setPrecioOriginal(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precioOriginal"))));
 
             ofertaFacade.create(o);
-            empresaFacade.find(o.getId()).getOfertaCollection().add(o); //Ligamos la oferta a la empresa
 
             ofertasBean h = new ofertasBean();
             h.setOfertas(ofertaFacade.findAll());
             request.setAttribute("ofertas", h);
             request.getRequestDispatcher("offersadmin.jsp").forward(request, response); //Crear pagina error de login        
-            
-            
-            
         }    
     }
 

@@ -41,13 +41,14 @@
                        <c:param name="tipo" value="Comida"/>
                    </c:url>" id="restaurantes">Restaurantes</a>
             </li>
+            <li id="contacto"><a href="contact.jsp">Contacto</a></li>
         </ul>
         <div class="loginaccount">
             <c:if test="${empty login.cli.email}"><!-- Si no estás logeado -->
                 <h6><a href="signup.jsp"><input class="botones" type="button" value="Nuevo" /></a>
                 <a href="login.jsp"><input class="botones" type="button" value="Login" /></a></h6>
             </c:if>
-            <c:if test="${not empty login.cli.email && login.cli.esAdmin == false}">
+            <c:if test="${not empty login.cli.email && login.cli.esAdmin == 0}">
                 <div class="mismalinea">
                     <form action="disconnectServlet" method="post">
                         <h6>Se ha conectado como: <a href="account.jsp">${login.cli.nombre}&nbsp;&nbsp;</a>

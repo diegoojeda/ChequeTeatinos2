@@ -16,6 +16,7 @@
     <jsp:body>
         <jsp:include page="structpage/aside.jsp" />
         <section>
+            <h2>Mi carrito de la compra</h2>
             <div class="product" title="Carrito">
 
             <div class="row">

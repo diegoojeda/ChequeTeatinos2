@@ -26,6 +26,10 @@
                 <p><span>Telefono</span><input class="contact" type="tel" name="telefono" value="${login.cli.telefono}" required/></p>
                 <p><span>Contraseña</span><input class="contact" type="password" name="password" value="${login.cli.pass}" required/></p>
                 <input class="submit" type="submit" value="Modificar" />
+                <c:if test="${not empty notificacion}">
+                    <h5 class="info">${notificacion}</h5>
+                </c:if>
+              
               </div>
             </form>
         </section>

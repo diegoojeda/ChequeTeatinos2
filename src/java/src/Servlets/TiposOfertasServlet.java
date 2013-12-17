@@ -30,6 +30,7 @@ public class TiposOfertasServlet extends HttpServlet {
             throws ServletException, IOException {
         List<Oferta> ofertas = ofertaFacade.findOfertasbyTipo(request.getParameter("tipo"));
         ofertasBean hb = new ofertasBean();
+        hb.setTipo(request.getParameter("tipo"));
         hb.setOfertas(ofertas);
         request.setAttribute("ofertas", hb);
         request.getRequestDispatcher("home.jsp").forward(request, response);

@@ -16,7 +16,18 @@
     <jsp:body>
         <jsp:include page="structpage/aside.jsp" />
         <section>
-            <h2>¡Últimas ofertas!</h2>
+            <c:if test="${empty ofertas.tipo}">
+                <h2>¡Últimas ofertas!</h2>
+            </c:if>
+            <c:if test="${ofertas.tipo == 'Comida'}">
+                <h2>Restaurantes</h2>
+            </c:if>
+            <c:if test="${ofertas.tipo == 'Ocio'}">
+                <h2>Ocio</h2>
+            </c:if>
+            <c:if test="${ofertas.tipo == 'Alojamiento'}">
+                <h2>Alojamiento</h2>
+            </c:if>
             <div class="row">
             <c:forEach var="oferta" items="${ofertas.ofertas}" end="5" >
                 <ul>
