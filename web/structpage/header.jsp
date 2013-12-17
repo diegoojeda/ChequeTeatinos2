@@ -41,6 +41,7 @@
                        <c:param name="tipo" value="Comida"/>
                    </c:url>" id="restaurantes">Restaurantes</a>
             </li>
+            <li id="contacto"><a href="contact.jsp">Contacto</a></li>
         </ul>
         <div class="loginaccount">
             <c:if test="${empty login.cli.email}"><!-- Si no estás logeado -->
