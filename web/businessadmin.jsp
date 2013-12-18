@@ -18,10 +18,10 @@
             $(document).ready(function() {
                 selectandtitle("#liempresas", "ChequeTeatinos - Empresas"); 
             });
-        </script>          
+        </script>
         <section>
             <br><h5><a href="addbusinessadmin.jsp"><input class="botones" type="button" value="Añadir Empresa" /></a></h5>
-                       
+            <br><h5><a href="addImageToBusiness.jsp"><input class="botones" type="button" value="Añadir imagen"/></a></h5>
         </section>
     </jsp:body>
 </t:genericpage>

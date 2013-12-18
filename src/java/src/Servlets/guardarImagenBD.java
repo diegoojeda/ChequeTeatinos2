@@ -16,10 +16,7 @@ import src.Entities.Empresa;
 import src.Facades.EmpresaFacade;
 import sun.misc.BASE64Encoder;
 
-/**
- *
- * @author masterinftel11
- */
+
 @WebServlet(name = "guardarImagenBD", urlPatterns = {"/guardarImagenBD"})
 public class guardarImagenBD extends HttpServlet {
     @EJB
@@ -52,7 +49,7 @@ public class guardarImagenBD extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        int id = 1;
         String contentType = request.getContentType();
         if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0))
         {
@@ -99,8 +96,8 @@ public class guardarImagenBD extends HttpServlet {
             String datos = e.encodeBuffer(datosArchivo);
             
             // Guardamos en la BD
-            guardarEnLaBD(datos);
-            request.getRequestDispatcher("formCargaImagen.jsp").forward(request, response);
+            guardarEnLaBD(datos, id);
+//            request.getRequestDispatcher("admin.jsp").forward(request, response);
         }
         
     }
@@ -114,8 +111,8 @@ public class guardarImagenBD extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-    public void guardarEnLaBD(String datos){
-        Empresa e = empresaFacade.find(6);
+    public void guardarEnLaBD(String datos, int id){
+        Empresa e = empresaFacade.find(id);
         e.setImagen(datos);
         empresaFacade.edit(e);
     }

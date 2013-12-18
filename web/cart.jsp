@@ -24,6 +24,8 @@
             <c:forEach var="oferta" items="${carrito}" >
                 <ul>
                     <li>
+                        <img src="<c:url value="cargarImagenBD"><c:param name="id" value="${oferta.empresa.id}"/></c:url>"
+                             alt="Company Image"/>
                         <span class="order model">
                             ${oferta.nombreOferta}
                         </span>
