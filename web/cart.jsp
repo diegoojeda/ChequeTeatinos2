@@ -14,45 +14,46 @@
     </jsp:attribute>
         
     <jsp:body>
+        <script>
+            $(document).ready(function() {
+                selectandtitle("ninguno", "ChequeTeatinos - Tu compra"); 
+            });
+        </script>   
+        
         <jsp:include page="structpage/aside.jsp" />
         <section>
             <c:if test="${not empty carrito}">
-                <h2>Tu compra total ${precio}</h2>
+                <h2>Tu compra</h2>
             </c:if>            
-            <div class="product" title="Carrito">
+                
+            <!-- Tabla ofertas del carrito -->
+            <table border="1">
+                <thead>
+                <td  class="tdempresa"><h5>Empresa</h5></td>
+                    <td><h5>Oferta</h5></td>
+                    <td><h5>Precio</h5></td>
+                    <td></td>
+                </thead>
 
-            <div class="row">
-
-            <c:forEach var="oferta" items="${carrito}" >
-                <ul>
-                    <li>
-                        <img src="<c:url value="cargarImagenBD"><c:param name="id" value="${oferta.empresa.id}"/></c:url>"
-                             alt="Company Image"/>
-                        <span class="order model">
-                            ${oferta.nombreOferta}
-                        </span>
-                        <span>
-                            ${oferta.descripcion}
-                        </span>
-                        <span class="order">
-                            <span class="price">
-                                ${oferta.precioConOferta}
-                                <span class="euros">
-                                    €
-                                </span>
-                                    
-                            </span>
-                            <br></br>
-                            <a href="
+                <c:forEach var="oferta" items="${carrito}" >
+                    <tr>
+                        <td class="tdempresa"><img class="iconos" src="<c:url value="cargarImagenBD"><c:param name="id" value="${oferta.empresa.id}"/></c:url>"
+                             alt="Company Image"/></td>
+                        <td><span class="order model">${oferta.nombreOferta}</span></td>
+                        <td><span class="order model">${oferta.precioConOferta}€</span></td>
+                        <td><a href="
                                <c:url value="quitarDelCarritoServlet" >
                                    <c:param name="idOferta" value="${oferta.id}"/>
-                               </c:url>"><span class="details">Eliminar del carrito</span></a>
-                        </span>
-                    </li>
-                </ul>
-            </c:forEach>
-            </div>
-            </div>
+                               </c:url>"><img class="iconosmapas" src="resources/media/images/delete.png" alt="Eliminar oferta del carrito" /></a></td>
+                    </tr>
+                </c:forEach>
+                <tfoot>
+                <td></td>
+                <td></td>
+                <td>Total: ${precio}€</td>
+                <td></td>
+                </tfoot>
+            </table>                
         </section>
     </jsp:body>
 </t:genericpage>

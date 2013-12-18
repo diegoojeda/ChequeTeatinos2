@@ -1,6 +1,7 @@
 package Servlets;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -27,8 +28,12 @@ public class quitarDelCarritoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         Oferta o = ofertaFacade.find(Integer.parseInt(request.getParameter("idOferta")));
         ((ArrayList<Oferta>)request.getSession().getAttribute("carrito")).remove(o);
+        BigDecimal result = ((BigDecimal)request.getSession().getAttribute("precio")).subtract(o.getPrecioConOferta());
+        request.getSession().setAttribute("precio", result);
+        
         request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 
