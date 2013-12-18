@@ -16,7 +16,9 @@
     <jsp:body>
         <jsp:include page="structpage/aside.jsp" />
         <section>
-            <h2>Mi carrito de la compra</h2>
+            <c:if test="${not empty carrito}">
+                <h2>Tu compra total ${precio}</h2>
+            </c:if>            
             <div class="product" title="Carrito">
 
             <div class="row">
@@ -45,7 +47,7 @@
                                <c:url value="quitarDelCarritoServlet" >
                                    <c:param name="idOferta" value="${oferta.id}"/>
                                </c:url>"><span class="details">Eliminar del carrito</span></a>
-                            </span>
+                        </span>
                     </li>
                 </ul>
             </c:forEach>

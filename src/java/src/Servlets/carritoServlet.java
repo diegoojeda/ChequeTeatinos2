@@ -1,6 +1,7 @@
 package Servlets;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -15,7 +16,22 @@ import src.Facades.OfertaFacade;
 public class carritoServlet extends HttpServlet {
     @EJB
     private OfertaFacade ofertaFacade;
+    
+    private ArrayList<Oferta> carrito = new ArrayList<>();
+    private ArrayList<Integer> unidades = new ArrayList<>();
 
+    
+    private int encontrada(Oferta o, ArrayList<Oferta> carrito){
+        int pos = -1;
+        
+        for(int i=0; i<carrito.size(); i++){
+            if(carrito.get(i).getId() == o.getId())
+                pos = i;
+        }
+        
+        return pos;
+    }
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -31,12 +47,25 @@ public class carritoServlet extends HttpServlet {
         Oferta o = ofertaFacade.find(ofertaId);
         if (request.getSession().getAttribute("login") != null){
             //Usuario logueado, procedemos a añadir a su carrito el objeto
-            if (request.getSession().getAttribute("carrito") == null){
+            if (request.getSession().getAttribute("carrito") == null && request.getSession().getAttribute("unidades") == null && request.getSession().getAttribute("precio") == null){
                 //En caso de que no exista el carrito aun
-                ArrayList<Oferta> carrito = new ArrayList<>();
                 request.getSession().setAttribute("carrito", carrito);
+                request.getSession().setAttribute("unidades", unidades);
+                request.getSession().setAttribute("precio", BigDecimal.ZERO);
             }
-            ((ArrayList<Oferta>)request.getSession().getAttribute("carrito")).add(o);
+            int pos = encontrada(o, carrito);
+            BigDecimal result = ((BigDecimal)request.getSession().getAttribute("precio")).add(o.getPrecioConOferta());
+                request.getSession().setAttribute("precio", result);
+            
+            if(pos < 0){
+                Integer n = 1;
+                ((ArrayList<Oferta>)request.getSession().getAttribute("carrito")).add(o);
+                ((ArrayList<Integer>)request.getSession().getAttribute("unidades")).add(n);
+            }
+            else{
+                 ((ArrayList<Integer>)request.getSession().getAttribute("unidades")).set(pos, ((ArrayList<Integer>)request.getSession().getAttribute("unidades")).get(pos));
+            }
+            
             request.getRequestDispatcher("homeServlet").forward(request, response);
         }
         else{
