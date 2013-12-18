@@ -58,7 +58,7 @@ function initialize(direccion, nombre, imagen, informacion) {
 
 
 
-      if (status == google.maps.GeocoderStatus.OK) {
+        if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         panorama = map.getStreetView();
         panorama.setPosition(results[0].geometry.location);
@@ -70,9 +70,7 @@ function initialize(direccion, nombre, imagen, informacion) {
             map: map,
             position: results[0].geometry.location
         });
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });            
+        infowindow.open(map,marker);          
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }

@@ -15,52 +15,59 @@
     </jsp:attribute>
     
     <jsp:body>
+        <script>
+            $(document).ready(function() {
+                initialize("${ofertaDetalle.emp.direccion}", "${ofertaDetalle.emp.nombre}","<c:url value='cargarImagenBD'><c:param name='id' value='${ofertaDetalle.emp.id}'/></c:url>");
+            });
+        </script>
         <jsp:include page="structpage/aside.jsp" />
         <section>
-            <div class="offer" title="OferDetail">
-                <span clas="detailed">
-                    <span class="order model">
-                        ${ofertaDetalle.ofe.nombreOferta}
-                    </span>
-                    <img src="<c:url value="cargarImagenBD"><c:param name="id" value="${ofertaDetalle.emp.id}"/></c:url>"
-                         alt="Company Image"/>
-                    <br>
-                    ${ofertaDetalle.ofe.descripcion}
-                    <c:if test="${not empty ofertaDetalle.ofe.existencias}">
-                        <br>Existencias: ${ofertaDetalle.ofe.existencias}
-                    </c:if>
-                        <br>Válido hasta: <fmt:formatDate value="${ofertaDetalle.ofe.fechaValidez}" pattern="dd-mm-yyyy"/>
-                    <span class="order">
-                        <span class="price">
-                            ${ofertaDetalle.ofe.precioConOferta}
-                            <span class="euros">
-                                €
-                            </span>
-                            <span class="before">
-                                Antes: ${ofertaDetalle.ofe.precioOriginal}
-                                <span class="euros">
-                                    €
-                                </span>
-                            </span>     
-                        </span>
-                        <span class="model">
-                            Empresa:
-                        </span>
-                                ${ofertaDetalle.emp.nombre}<br>
-                        <span class = "model">
-                            Dirección: 
-                        </span>
-                        ${ofertaDetalle.emp.direccion}
-                    </span>
-                    <a href="
+            <table>
+                <td>
+                    <a class="product center" title="Offers" href="
                        <c:url value="carritoServlet">
                            <c:param name="idOferta" value="${ofertaDetalle.ofe.id}"/> 
                        </c:url>">
-                        <span class="details">Añadir al carrito</span> 
+                        <img src="http://realxteem.com/shop/cart_images/add-to-cart-icon.jpg" alt="Añadir al carrito" class="iconos">
+                        <span class="order"><span class="details"><h5>Añadir al carrito</h5></span></span>
                     </a>
-                </span>
-            </div> 
-            
+                </td>
+                <td>
+                    <img src="resources/media/images/separatorvertical.png"/>
+                </td>
+                <td>
+                    <div class="offer" title="OferDetail">
+                        <span clas="detailed">
+                            <h2>
+                                ${ofertaDetalle.ofe.nombreOferta}
+                            </h2>
+                            <br>
+                            <h5>${ofertaDetalle.ofe.descripcion}</h5>
+                            <c:if test="${not empty ofertaDetalle.ofe.existencias}">
+                                <br>Existencias: ${ofertaDetalle.ofe.existencias}
+                            </c:if>
+                                <br>Válido hasta: <fmt:formatDate value="${ofertaDetalle.ofe.fechaValidez}" pattern="dd-mm-yyyy"/>
+                            <span class="order">
+                                <span class="price">
+                                    ${ofertaDetalle.ofe.precioConOferta}
+                                    <span class="euros">
+                                        €
+                                    </span>
+                                    <span class="before">
+                                        Antes: ${ofertaDetalle.ofe.precioOriginal}
+                                        <span class="euros">
+                                            €
+                                        </span>
+                                    </span>     
+                                </span>
+                            </span>
+                        </span>
+                    </div>                    
+                </td>
+            </table>
+
+            <!-- Mapas -->
+            <div id="mapa"></div><br>
         </section>
         
     </jsp:body>
