@@ -12,7 +12,7 @@
         <a href="login.jsp"><img src="http://websiteexpert.com/wp-content/uploads/grey-blue-cart1.png" alt="Ver Compra" class="iconos"></a>
     </c:if>
     <c:if test="${not empty login.cli.email}">
-        <a href="cart.jsp"><img src="../resources/media/images/cart.png" alt="Ver Compra" class="iconos"></a>
+        <a href="cart.jsp"><img src="http://websiteexpert.com/wp-content/uploads/grey-blue-cart1.png" alt="Ver Compra" class="iconos"></a>
     </c:if>
     
         <c:forEach var="oferta" items="${carrito}">
