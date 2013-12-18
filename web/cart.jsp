@@ -29,9 +29,9 @@
             <!-- Tabla ofertas del carrito -->
             <table border="1">
                 <thead>
-                <td  class="tdempresa"><h5>Empresa</h5></td>
-                    <td><h5>Oferta</h5></td>
-                    <td><h5>Precio</h5></td>
+                <td  class="tdempresa"><h4>Empresa</h4></td>
+                    <td><h4>Oferta</h4></td>
+                    <td><h4>Precio</h4></td>
                     <td></td>
                 </thead>
 
@@ -39,7 +39,7 @@
                     <tr>
                         <td class="tdempresa"><img class="iconos" src="<c:url value="cargarImagenBD"><c:param name="id" value="${oferta.empresa.id}"/></c:url>"
                              alt="Company Image"/></td>
-                        <td><span class="order model">${oferta.nombreOferta}</span></td>
+                        <td><h5 class="order model">${oferta.nombreOferta}</h5></td>
                         <td><span class="order model">${oferta.precioConOferta}€</span></td>
                         <td><a href="
                                <c:url value="quitarDelCarritoServlet" >
