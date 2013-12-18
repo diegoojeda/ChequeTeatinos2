@@ -14,14 +14,8 @@
         <a href="cart.jsp"><img src="http://websiteexpert.com/wp-content/uploads/grey-blue-cart1.png" alt="" class="iconos"></a>
     </c:if>
     
-    <c:forEach var="oferta" items="${carrito}">
-        ${oferta.nombreOferta}
-        <a href="
-           <c:url value="quitarDelCarritoServlet">
-               <c:param name="idOferta" value="${oferta.id}"/>
-           </c:url>">
-            <img class="iconosmapas" src="resources/media/images/delete.png" alt="Delete carrito"/>
-        </a>
-
-    </c:forEach>
+        <c:forEach var="oferta" items="${carrito}">
+            <h3>- ${oferta.nombreOferta}</h3>
+        </c:forEach>
+            
 </aside>  
