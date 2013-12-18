@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Oferta.findAll", query = "SELECT o FROM Oferta o ORDER BY o.id DESC"),
-    @NamedQuery(name = "Oferta.findById", query = "SELECT o FROM Oferta o WHERE o.id = :id ORDER BY o.id"),
+    @NamedQuery(name = "Oferta.findById", query = "SELECT o FROM Oferta o WHERE o.id = :id"),
     @NamedQuery(name = "Oferta.findByFechaValidez", query = "SELECT o FROM Oferta o WHERE o.fechaValidez = :fechaValidez"),
     @NamedQuery(name = "Oferta.findByExistencias", query = "SELECT o FROM Oferta o WHERE o.existencias = :existencias"),
     @NamedQuery(name = "Oferta.findByNombreOferta", query = "SELECT o FROM Oferta o WHERE o.nombreOferta = :nombreOferta"),
@@ -42,6 +42,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Oferta.findByPrecioOriginal", query = "SELECT o FROM Oferta o WHERE o.precioOriginal = :precioOriginal"),
     @NamedQuery(name = "Oferta.findByPrecioConOferta", query = "SELECT o FROM Oferta o WHERE o.precioConOferta = :precioConOferta"),
     @NamedQuery(name = "Oferta.findByTipo", query = "SELECT o FROM Oferta o WHERE o.tipo = :tipo")})
+
 public class Oferta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

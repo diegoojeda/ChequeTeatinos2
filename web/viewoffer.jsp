@@ -46,7 +46,7 @@
                             <c:if test="${not empty ofertaDetalle.ofe.existencias}">
                                 <br>Existencias: ${ofertaDetalle.ofe.existencias}
                             </c:if>
-                                <br>Válido hasta: <fmt:formatDate value="${ofertaDetalle.ofe.fechaValidez}" pattern="dd-mm-yyyy"/>
+                                <br>Válido hasta: <fmt:formatDate value="${ofertaDetalle.ofe.fechaValidez}" pattern="dd MMMM yyyy"/>
                             <span class="order">
                                 <span class="price">
                                     ${ofertaDetalle.ofe.precioConOferta}
