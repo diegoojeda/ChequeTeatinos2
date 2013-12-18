@@ -28,7 +28,7 @@
                        <c:url value="carritoServlet">
                            <c:param name="idOferta" value="${ofertaDetalle.ofe.id}"/> 
                        </c:url>">
-                        <img src="http://realxteem.com/shop/cart_images/add-to-cart-icon.jpg" alt="Añadir al carrito" class="iconos">
+                        <img src="resources/media/images/shoppingcart.png" alt="Añadir al carrito" class="iconos">
                         <span class="order"><span class="details"><h5>Añadir al carrito</h5></span></span>
                     </a>
                 </td>
