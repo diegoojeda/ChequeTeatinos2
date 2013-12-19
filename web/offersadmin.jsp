@@ -36,8 +36,8 @@
                 <table border="1">
                     <thead>
                         <td></td>
-                        <td><h5>Oferta</h5></td>
-                        <td><h5>Empresa</h5></td>
+                        <td><h2>Oferta</h2></td>
+                        <td><h2>Empresa</h2></td>
                     </thead>
                         
                     <c:forEach var="oferta" items="${ofertas.ofertas}" >
