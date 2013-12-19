@@ -173,11 +173,11 @@ root {
 .product.hover .model { font-weight: bold; }
 .product.hover .details { color: #ff7800; }    
 
-.offer { width: 500px; height: 500px; padding: 20px 20px 0 100px; display: block; font-size: 14px; line-height: 18px; color: #2f3032; font-family: georgia, serif; }
+.offer { width: 500px; height: 140px; padding: 0px 0px 0 50px; display: block; font-size: 14px; line-height: 18px; color: #2f3032; font-family: georgia, serif; }
 .offer { font-style: italic; }
-.offer img { padding: 0 0 10px 0; position: relative; margin-left: -2px; }
-.offer .order { display: block; margin-top:20px; margin-bottom: 20px }
-.offer .model { font-size: 20px; color: #1898d6; padding: 0 0 10px 0; }
+.offer img { padding: 0 0 0px 0; position: relative; margin-left: -2px; }
+.offer .order { display: block; margin-top:0px; margin-bottom: 0px }
+.offer .model { font-size: 20px; color: #1898d6; padding: 0 0 0 0; }
 .offer .number { font-family: arial, sans-serif; font-style: normal; }
 .offer .details { font-size: 18px; line-height: 30px; color: #ffba00; font-style: normal; font-weight: bold; letter-spacing: -1px; float: left; display: inline; padding: 20px 0 0 0; }
 .offer .price { font-size: 30px; line-height: 40px; float: right; display: inline; font-style: normal; color: #1898d6; font-weight: bold; }
@@ -197,3 +197,19 @@ root {
     margin-top:10px;
     color:blue;
 }
+
+table {
+   border: 1px;
+   border-collapse: collapse;
+   caption-side: top;
+   text-align: center;
+}
+
+.tdempresa{
+    width: 25px;
+}
+
+.tdoferta{
+    text-align:left;
+}
+

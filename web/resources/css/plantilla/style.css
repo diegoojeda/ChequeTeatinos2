@@ -334,6 +334,14 @@ section ul li
   border-top: 1px solid #D9D5CF;
   border-bottom: 1px solid #FFF;
   margin: 0 0 20px 0;}
+
+.separatorvert
+{ width: 0;
+  height: 100%;
+  border-left: 1px solid #D9D5CF;
+  border-right: 1px solid #FFF;
+  margin: 0 0 0 20px;
+}
   
 table
 { 
@@ -352,7 +360,7 @@ table tr td
 }
 
 .iconos{
-    height: 70px;
+    height: 90px;
     padding-right: 30px;
     padding-bottom: 10px;
 }

@@ -10,15 +10,14 @@ function initialize(direccion, nombre, imagen, informacion) {
         var styles = [
             {
               "stylers": [
-                { "invert_lightness": true }
+                { "invert_lightness": false }
               ]
             }
           ];
 
         // Create a new StyledMapType object, passing it the array of styles,
         // as well as the name to be displayed on the map type control.
-        var styledMap = new google.maps.StyledMapType(styles,
-          {name: "Styled Map"});
+        var styledMap = new google.maps.StyledMapType(styles);
 
         // Create a map object, and include the MapTypeId to add
         // to the map type control.
@@ -58,7 +57,7 @@ function initialize(direccion, nombre, imagen, informacion) {
 
 
 
-      if (status == google.maps.GeocoderStatus.OK) {
+        if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         panorama = map.getStreetView();
         panorama.setPosition(results[0].geometry.location);
@@ -70,9 +69,7 @@ function initialize(direccion, nombre, imagen, informacion) {
             map: map,
             position: results[0].geometry.location
         });
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });            
+        infowindow.open(map,marker);          
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
@@ -90,7 +87,7 @@ function toggleStreetView() {
         document.getElementById('directionsPanel').style.height = "0px";
         document.getElementById('map_canvas').style.visibility = "hidden";
         document.getElementById('directionsPanel').style.visibility = "hidden";
-          document.getElementById('cambiarvista').src = "resources/media/images/street_view.png";
+        document.getElementById('cambiarvista').src = "resources/media/images/street_view.png";
     }
     else{
         

@@ -5,7 +5,7 @@
 package src.Entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,13 +13,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -42,8 +40,16 @@ public class Pedido implements Serializable {
     @Column(name = "FECHA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
-    @OneToMany(mappedBy = "codigoPedido")
-    private Collection<PedidoOferta> pedidoOfertaCollection;
+    @Column(name = "TOTAL")
+    private BigDecimal total;
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
 
     public Pedido() {
     }
@@ -66,15 +72,6 @@ public class Pedido implements Serializable {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
-    }
-
-    @XmlTransient
-    public Collection<PedidoOferta> getPedidoOfertaCollection() {
-        return pedidoOfertaCollection;
-    }
-
-    public void setPedidoOfertaCollection(Collection<PedidoOferta> pedidoOfertaCollection) {
-        this.pedidoOfertaCollection = pedidoOfertaCollection;
     }
 
     @Override

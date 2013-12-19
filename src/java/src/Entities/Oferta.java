@@ -6,7 +6,6 @@ package src.Entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -16,14 +15,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+
 
 /**
  *
@@ -34,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Oferta.findAll", query = "SELECT o FROM Oferta o ORDER BY o.id DESC"),
-    @NamedQuery(name = "Oferta.findById", query = "SELECT o FROM Oferta o WHERE o.id = :id ORDER BY o.id"),
+    @NamedQuery(name = "Oferta.findById", query = "SELECT o FROM Oferta o WHERE o.id = :id"),
     @NamedQuery(name = "Oferta.findByFechaValidez", query = "SELECT o FROM Oferta o WHERE o.fechaValidez = :fechaValidez"),
     @NamedQuery(name = "Oferta.findByExistencias", query = "SELECT o FROM Oferta o WHERE o.existencias = :existencias"),
     @NamedQuery(name = "Oferta.findByNombreOferta", query = "SELECT o FROM Oferta o WHERE o.nombreOferta = :nombreOferta"),
@@ -42,6 +40,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Oferta.findByPrecioOriginal", query = "SELECT o FROM Oferta o WHERE o.precioOriginal = :precioOriginal"),
     @NamedQuery(name = "Oferta.findByPrecioConOferta", query = "SELECT o FROM Oferta o WHERE o.precioConOferta = :precioConOferta"),
     @NamedQuery(name = "Oferta.findByTipo", query = "SELECT o FROM Oferta o WHERE o.tipo = :tipo")})
+
 public class Oferta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -68,8 +67,6 @@ public class Oferta implements Serializable {
     @Size(max = 20)
     @Column(name = "TIPO")
     private String tipo;
-    @OneToMany(mappedBy = "codigoOferta")
-    private Collection<PedidoOferta> pedidoOfertaCollection;
     @JoinColumn(name = "EMPRESA", referencedColumnName = "ID")
     @ManyToOne
     private Empresa empresa;
@@ -143,15 +140,6 @@ public class Oferta implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    @XmlTransient
-    public Collection<PedidoOferta> getPedidoOfertaCollection() {
-        return pedidoOfertaCollection;
-    }
-
-    public void setPedidoOfertaCollection(Collection<PedidoOferta> pedidoOfertaCollection) {
-        this.pedidoOfertaCollection = pedidoOfertaCollection;
     }
 
     public Empresa getEmpresa() {

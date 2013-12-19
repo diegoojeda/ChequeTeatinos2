@@ -3,6 +3,9 @@
  * and open the template in the editor.
  */
 
+function cargarDescripcion(nombre, direccion){ 
+    initialize(direccion, nombre);
+}
 
 function selectandtitle(selectsub, title){
     quitarSelected(selectsub);
