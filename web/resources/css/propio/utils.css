@@ -198,10 +198,18 @@ root {
     color:blue;
 }
 
+table {
+   border: 1px;
+   border-collapse: collapse;
+   caption-side: top;
+   text-align: center;
+}
+
 .tdempresa{
     width: 25px;
 }
 
-tr, td, table {
-padding: 0px; margin: 0px; border: 0px; border-collapse: collapse;
+.tdoferta{
+    text-align:left;
 }
+
