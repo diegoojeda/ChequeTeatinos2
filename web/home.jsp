@@ -30,7 +30,6 @@
         </c:if>
             
             
-            
         <jsp:include page="structpage/aside.jsp" />
         <section>
             <c:if test="${empty idul}">

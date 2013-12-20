@@ -225,6 +225,17 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   overflow: auto;
 }
 
+#site_content_print
+{ 
+   /*  margin-top: 260px; */
+    width: 86%;
+  padding: 0% 2% 0.5% 2%;
+  background: #FFF;
+  background-color: rgba(255,255,255,0.8);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 aside
 { 
     margin-top: 10px;

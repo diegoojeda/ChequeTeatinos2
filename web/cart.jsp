@@ -24,7 +24,6 @@
         <section>
             <c:if test="${not empty carrito}">
                 <h2>Tu compra</h2>
-            </c:if>            
                 
             <!-- Tabla ofertas del carrito -->
             <table border="1">
@@ -53,10 +52,24 @@
                 <td>Total: ${precio}€</td>
                 <td></td>
                 </tfoot>
-            </table>    
-            <a href="pagarServlet">
-                <input class="botones" type="button" value="Finalizar y pagar" />
+            </table> 
+            <h2>Pago</h2>
+                
+            <form name="formcontacto" action="" method="post">
+              <div class="form_settings">
+                <!-- Campos formulario -->
+                <p><span>IBAN</span><input class="contact" type="text" name="iban" value="ES 70 0128 0001 01 0123456789" required disabled="true"/></p>
+              </div>
+            </form>
+            <br><br>
+                
+            <a href="pagarServlet" target="_blank">
+                <input class="botones" type="button" value="Finalizar e imprimir" />
             </a>
+                
+                
+            </c:if>            
+
         </section>
     </jsp:body>
 </t:genericpage>

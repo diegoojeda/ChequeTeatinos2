@@ -4,68 +4,36 @@
     Author     : escabia
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<t:genericpage>
-    <jsp:attribute name="header">
-        <jsp:include page="structpage/header.jsp" />      
-    </jsp:attribute>
-    
+<t:genericpage_print>    
     <jsp:body>
-    <script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.1.min.js" > </script> 
-    <script type="text/javascript">
-        function PrintElem(elem)
-        {
-            Popup($(elem).html());
-        }
-
-        function Popup(data) 
-        {
-            var mywindow = window.open('', 'my div', 'height=400,width=600');
-            mywindow.document.write('<html><head><title></title>');
-            /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
-            mywindow.document.write('</head><body >');
-            mywindow.document.write(data);
-            mywindow.document.write('</body></html>');
-
-            mywindow.print();
-            mywindow.close();
-
-            return true;
-        }
-
-    </script>  
-        
-        <jsp:include page="structpage/aside.jsp" />
         <section>
-            <c:if test="${not empty carrito}">
-                <h2>Tu compra</h2>
-            </c:if>            
-            <h5>Compra realizada con éxito. Imprima sus cheques.</h5>
-
-                    
-                    
             <div id="cheques">
-                <h2>Cheques</h2>
+                <h2>Cheques ${login.cli.email}</h2>
                 <table border="1">
 
                     <c:forEach var="oferta" items="${compra}" >
                         <tr>
                             <td class="tdempresa"><img class="iconos" src="<c:url value="cargarImagenBD"><c:param name="id" value="${oferta.empresa.id}"/></c:url>"
                                  alt="Company Image"/></td>
-                            <td class="tdoferta"><h6 class="order model">${oferta.nombreOferta}</h6></td>
+                                <td class="tdoferta">
+                                    <h4 class="order model">${oferta.nombreOferta}</h4>
+                                    <h6>${oferta.descripcion}</h6>
+                                </td>
+                            <td class="tdoferta"><h6 class="order model">Válido hasta: <fmt:formatDate value="${oferta.fechaValidez}" pattern="dd MMMM yyyy"/></h6></td>
+                            <td class="tdoferta"><h6 class="order model">Referencia: ${oferta.id}${oferta.empresa.id}</h6></td>
                         </tr>
                     </c:forEach>
-                </table>                    
+                </table> 
+                <span>* Tickets individuales con fecha de validez indicada en el cheque. No son transferibles.</span>
             </div>
-                    
-                    
-            
-            
+            <br><br>
             <input class="botones" type="button" onclick="window.print()" value="Imprimir" /><!-- PrintElem('#cheques') -->
             
         </section>
     </jsp:body>
-</t:genericpage>
+</t:genericpage_print>
