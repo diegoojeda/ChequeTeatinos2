@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import src.Entities.Cliente;
 import src.Entities.Oferta;
 import src.Entities.Pedido;
 import src.Entities.PedidoOferta;
@@ -84,11 +85,14 @@ public class pagarServlet extends HttpServlet {
             pedidoOfertaFacade.create(pedOfer);
             maxId++;
         }
+        ArrayList<Oferta> compra = new ArrayList<>(carrito);
+        request.getSession().setAttribute("compra", carrito);
+        
         //Vaciar carrito de la sesión
         request.getSession().setAttribute("carrito", new ArrayList<Oferta>());
         request.getSession().setAttribute("unidades", new ArrayList<Integer>());
         request.getSession().setAttribute("precio", BigDecimal.ZERO);
-        request.getRequestDispatcher("pedidoRealizado.jsp").forward(request, response);
+        request.getRequestDispatcher("orderPlaced.jsp").forward(request, response);
     }
     
     /**
